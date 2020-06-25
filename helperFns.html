@@ -3,7 +3,7 @@
     (async () => {
         let repourl = "https://api.github.com/repos/ranchimall/articles/contents";
         let repocontent = null;
-        let articles = {}
+        let window.articles = {}
 
         repocontent = await (await fetch(repourl)).json();
         for (var i = 0; i < repocontent.length; i++) {
