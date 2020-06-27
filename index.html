@@ -419,7 +419,7 @@
     function switchtoArticle(element){
         document.getElementById("homepage").style.display = "none"
         document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
-        document.getElementById("displaypage").style.display = "initial"
+        document.getElementById("displaypagemain").style.display = "initial"
     }
 
 </script>
@@ -434,8 +434,6 @@
         <meta name="viewport" content="width=device-width">
         <div class="head">
             <div class="headerobjectswrapper">
-                <div class="weatherforcastbox"><span style="font-style: italic;">Weatherforcast for the next 24 hours:
-                        Plenty of Sunshine</span><br><span>Wind: 7km/h SSE; Ther: 21°C; Hum: 82%</span></div>
                 <header>RanchiMall Times</header>
             </div>
             <div class="subhead">Thursday April 30, 2020</div>
@@ -558,7 +556,7 @@
         </div>
     </div>
 
-    <div id="displaypagemain">
+    <div id="displaypagemain" style="display: none;">
         <div id="goback">
             <i class="fa fa-angle-double-left" aria-hidden="true"></i>
             Go Back
