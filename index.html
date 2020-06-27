@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>RanchiMall Times</title>
-
     <style>
         hide {
             display: none;
@@ -336,20 +335,89 @@
         let repourl = "https://api.github.com/repos/ranchimall/articles/contents"
         let repocontent = null
         window.articles = {}
+        window.parsedarticles = {}
 
         repocontent = await (await fetch(repourl)).json();
-        for (var i = 0; i < repocontent.length; i++) {
+
+        for (let i = 0; i < repocontent.length; i++) {
             if (repocontent[i]['name'] == 'articles') {
                 var articlefolder = await (await fetch(repocontent[i]['url'])).json()
             }
         }
 
-        for (var i = 0; i < articlefolder.length; i++) {
+        for (let i = 0; i < articlefolder.length; i++) {
             articlehtml = await (await fetch(articlefolder[i]["download_url"])).text()
             articles[articlefolder[i]['name'].slice(0, articlefolder[i]['name'].length - 5)] = articlehtml
         }
 
+        parseArticles(articles)
+        renderColumns(parsedarticles)
     })();
+
+    function parseArticles(articles) {
+        let totalarticles = Object.keys(articles).length
+        articlekeys = Object.keys(articles)
+        let domparser = new DOMParser();
+
+
+        for (let i = 0; i < totalarticles; i++) {
+
+            let currentarticle = {}
+
+            let articlehtml = articles[articlekeys[i]]
+            let parsedhtml = domparser.parseFromString(articlehtml, 'text/html')
+
+            currentarticle['title'] = parsedhtml.getElementById('title').innerText
+            currentarticle['subtitle'] = parsedhtml.getElementById('subtitle').innerText
+            currentarticle['sections'] = {}
+
+            totalsections = parsedhtml.getElementById('sectionmaster').childElementCount
+
+            for (let j = 0; j < totalsections; j++) {
+                tempobj = {}
+                asection = parsedhtml.getElementById(`section${j + 1}`)
+                sectiontitle = asection.children[0].children[0].innerText
+                sectionpara1 = asection.children[1].innerText
+                tempobj['title'] = sectiontitle
+                tempobj['paragraph'] = sectionpara1
+                currentarticle['sections'][j] = tempobj
+            }
+
+            parsedarticles[articlekeys[i]] = currentarticle
+        }
+    }
+
+    function renderColumns(parsedarticles){
+
+        numberOfColumns = Object.keys(parsedarticles).length
+        let collumns = document.getElementById('collumnsmain')   
+        //debugger 
+        let parsedArticlesKeys = Object.keys(parsedarticles)
+        
+        for(let i=0; i<parsedArticlesKeys.length; i++){
+            columnhtml = `<div class="collumn" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}" onclick="switchtoArticle(this)">
+                            <div class="head">
+                                <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
+                                <p><span class="headline hl4">${parsedarticles[parsedArticlesKeys[i]].subtitle}</span></p>
+                            </div>
+                            <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
+                            <p>${parsedarticles[parsedArticlesKeys[i]].sections[1].paragraph}...</p>
+                          </div>` 
+            //debugger;
+            //collumns.append(columnhtml)      
+            collumns.innerHTML = collumns.innerHTML + columnhtml   
+            //debugger
+            
+        }
+    }
+
+    function switchtoArticle(element){
+        debugger
+        document.getElementById("homepage").style.display = "none"
+        document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
+        document.getElementById("displaypage").style.display = "initial"
+    }
+
 </script>
 
 <body translate="no">
@@ -369,14 +437,16 @@
             <div class="subhead">Thursday April 30, 2020</div>
         </div>
         <div class="content">
-            <div class="collumns">
-                <div class="collumn">
+            <div class="collumns" id='collumnsmain'>
+                <!--
+                <div class="collumn" id="column1">
                     <div class="head"><span class="headline hl3">When darkness overspreads my eyes</span>
                         <p><span class="headline hl4">by JOHANN WOLFGANG VON GOETHE</span></p>
                     </div>
                     When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper
                     surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner
-                    sanctuary, I throw myself down among the tall grass by the trickling stream;<p>and, as I lie close
+                    sanctuary, I throw myself down among the tall grass by the trickling stream;
+                    <p>and, as I lie close
                         to
                         the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world
                         among the stalks, and grow familiar with the countless indescribable forms of the insects and
@@ -391,7 +461,7 @@
                         warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite
                         God!</p>
                 </div>
-                <div class="collumn">
+                <div class="collumn" id="column2">
                     <div class="head"><span class="headline hl5">Give people courage</span>
                         <p><span class="headline hl6">The crowd seemed to grow</span></p>
                     </div>
@@ -418,7 +488,7 @@
                         thirty yards of the pit, advancing from the direction of Horsell, I noted a little black knot of
                         men, the foremost of whom was waving a white flag.</p>
                 </div>
-                <div class="collumn">
+                <div class="collumn" id="column3">
                     <div class="head"><span class="headline hl1">May the Force be with you</span>
                         <p><span class="headline hl2">Let go your conscious self and act on instinct</span></p>
                     </div>Partially, but it also obeys your commands. Hey, Luke! May the Force be with you. I have
@@ -438,7 +508,7 @@
                     <p>You don't believe in the Force, do you? Partially, but it also obeys your commands. The plans you
                         refer to will soon be back in our hands. As you wish.</p>
                 </div>
-                <div class="collumn">
+                <div class="collumn" id="column4">
                     <div class="head"><span class="headline hl3">The buzz of the little world </span>
                         <p><span class="headline hl4">A thousand unknown plants</span></p>
                     </div>
@@ -457,7 +527,7 @@
                         own
                         image, and the breath</p>
                 </div>
-                <div class="collumn">
+                <div class="collumn" id="column5">
                     <div class="head"><span class="headline hl1">It wasn't a dream </span>
                         <p><span class="headline hl4">by FRANZ KAFKA</span></p>
                     </div>
@@ -479,6 +549,7 @@
                         that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the
                         window at the dull weather. </p>
                 </div>
+            -->
             </div>
         </div>
     </div>
@@ -488,19 +559,16 @@
 </body>
 
 <script>
-    window.addEventListener("click", function () {
+    document.getElementById("displaypage").addEventListener("click", function () {
         console.log("Registered a click")
         if (document.getElementById("homepage").style.display == "none") {
             document.getElementById("homepage").style.display = "initial"
             document.getElementById("displaypage").style.display = "none"
         }
         else {
-            document.getElementById("homepage").style.display = "none"
-            document.getElementById("displaypage").innerHTML = articles.bengal
-            document.getElementById("displaypage").style.display = "initial"
+            
         }
     });
 </script>
-
 
 </html>
