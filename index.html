@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RanchiMall Times</title>
+    <script src="https://use.fontawesome.com/41cc35d596.js"></script>
     <style>
         hide {
             display: none;
@@ -395,13 +396,17 @@
         let parsedArticlesKeys = Object.keys(parsedarticles)
         
         for(let i=0; i<parsedArticlesKeys.length; i++){
-            columnhtml = `<div class="collumn" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}" onclick="switchtoArticle(this)">
+            columnhtml = `<div class="collumn" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}">
                             <div class="head">
                                 <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
                                 <p><span class="headline hl4">${parsedarticles[parsedArticlesKeys[i]].subtitle}</span></p>
                             </div>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[1].paragraph}...</p>
+                            <div id="goforward" onclick="switchtoArticle(this.parentNode)">
+                                Read article
+                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            </div>
                           </div>` 
             //debugger;
             //collumns.append(columnhtml)      
@@ -412,7 +417,6 @@
     }
 
     function switchtoArticle(element){
-        debugger
         document.getElementById("homepage").style.display = "none"
         document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
         document.getElementById("displaypage").style.display = "initial"
@@ -554,16 +558,23 @@
         </div>
     </div>
 
-    <div id=displaypage>
+    <div id="displaypagemain">
+        <div id="goback">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+            Go Back
+        </div>
+        <div id="displaypage">
+
+        </div>
     </div>
 </body>
 
 <script>
-    document.getElementById("displaypage").addEventListener("click", function () {
+    document.getElementById("goback").addEventListener("click", function () {
         console.log("Registered a click")
         if (document.getElementById("homepage").style.display == "none") {
             document.getElementById("homepage").style.display = "initial"
-            document.getElementById("displaypage").style.display = "none"
+            document.getElementById("displaypagemain").style.display = "none"
         }
         else {
             
