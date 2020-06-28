@@ -403,7 +403,7 @@
                             </div>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[1].paragraph}...</p>
-                            <div id="goforward" onclick="switchtoArticle(this.parentNode)">
+                            <div id="goforward" onclick="switchtoArticle(this.parentNode)" style="color:#DC143C">
                                 Read article
                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                             </div>
@@ -564,11 +564,26 @@
         <div id="displaypage">
 
         </div>
+        <div id="gobackbottom">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+            Go Back
+        </div>
     </div>
 </body>
 
 <script>
     document.getElementById("goback").addEventListener("click", function () {
+        console.log("Registered a click")
+        if (document.getElementById("homepage").style.display == "none") {
+            document.getElementById("homepage").style.display = "initial"
+            document.getElementById("displaypagemain").style.display = "none"
+        }
+        else {
+            
+        }
+    });
+
+    document.getElementById("gobackbottom").addEventListener("click", function () {
         console.log("Registered a click")
         if (document.getElementById("homepage").style.display == "none") {
             document.getElementById("homepage").style.display = "initial"
