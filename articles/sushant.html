@@ -1,0 +1,487 @@
+<html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <title>RanchiMall Content Collaboration Output</title>
+                            <style>
+                                body {
+                                    font-family: 'Droid Serif', serif;
+                                    font-size: 14px;
+                                    color: #2f2f2f;
+                                    background-color: #f9f7f1;
+                                }
+
+                                header {
+                                    font-family: 'Playfair Display', serif;
+                                    font-weight: 900;
+                                    font-size: 80px;
+                                    text-transform: uppercase;
+                                    display: inline-block;
+                                    line-height: 72px;
+                                    margin-bottom: 20px;
+
+                                }
+
+                                p {
+                                    margin-top: 0;
+                                    margin-bottom: 20px;
+                                }
+
+                                .head {
+                                    text-align: center;
+                                    position: relative;
+
+
+                                }
+
+                                .headerobjectswrapper {}
+
+                                .subhead {
+                                    text-transform: uppercase;
+                                    border-bottom: 2px solid #2f2f2f;
+                                    border-top: 2px solid #2f2f2f;
+                                    padding: 12px 0 12px 0;
+
+                                }
+
+                                .content {
+                                    font-size: 0;
+                                    line-height: 0;
+                                    word-spacing: -.31em;
+                                    display: inline-block;
+                                    margin: 30px 2% 0 15%;
+
+
+                                }
+
+                                .collumns {}
+
+                                .collumn {
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    width: 80%;
+                                    display: inline-block;
+                                    padding: 0 1% 0 1%;
+                                    vertical-align: top;
+                                    margin-bottom: 50px;
+                                    -webkit-transition: all .7s;
+                                    transition: all .7s;
+                                }
+
+                                .collumn+.collumn {
+                                    border-left: 1px solid #2f2f2f;
+                                }
+
+                                .collumn .headline {
+                                    text-align: center;
+                                    line-height: normal;
+                                    font-family: 'Playfair Display', serif;
+                                    display: block;
+                                    margin: 0 auto;
+
+
+                                }
+
+                                .collumn .headline.hl1 {
+                                    font-weight: 700;
+                                    font-size: 30px;
+                                    text-transform: uppercase;
+                                    padding: 10px 0 30px 0;
+
+                                }
+
+                                .collumn .headline.hl2 {
+                                    font-weight: 400;
+                                    font-style: italic;
+                                    font-size: 24px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 30px 0;
+                                }
+
+                                .collumn .headline.hl2:before {
+                                    border-top: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 7px;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .collumn .headline.hl2:after {
+                                    border-bottom: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 13px;
+                                    display: block;
+                                    margin: 0 auto;
+
+                                }
+
+                                .collumn .headline.hl3 {
+                                    font-weight: 400;
+                                    font-style: italic;
+                                    font-size: 36px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 30px 0;
+                                }
+
+                                .collumn .headline.hl4 {
+                                    font-weight: 700;
+                                    font-size: 12px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 30px 0;
+                                }
+
+                                .collumn .headline.hl4:before {
+                                    border-top: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 7px;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .collumn .headline.hl4:after {
+                                    border-bottom: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 10px;
+                                    display: block;
+                                    margin: 0 auto;
+
+                                }
+
+                                .collumn .headline.hl5 {
+                                    font-weight: 400;
+                                    font-size: 42px;
+                                    text-transform: uppercase;
+                                    font-style: italic;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 10px 0;
+                                }
+
+                                .collumn .headline.hl6 {
+                                    font-weight: 400;
+                                    font-size: 18px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 10px 0;
+                                }
+
+                                .collumn .headline.hl6:before {
+                                    border-top: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 7px;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .collumn .headline.hl6:after {
+                                    border-bottom: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 10px;
+                                    display: block;
+                                    margin: 0 auto;
+
+                                }
+
+                                .collumn .headline.hl7 {
+                                    font-weight: 700;
+                                    font-size: 12px;
+                                    box-sizing: border-box;
+                                    display: block;
+                                    padding: 10px 0 10px 0;
+                                }
+
+                                .collumn .headline.hl8 {
+                                    font-weight: 700;
+                                    font-size: 12px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 10px 0;
+                                }
+
+                                .collumn .headline.hl9 {
+                                    font-weight: 700;
+                                    font-size: 12px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 10px 0;
+                                }
+
+                                .collumn .headline.hl10 {
+                                    font-weight: 700;
+                                    font-size: 12px;
+                                    box-sizing: border-box;
+                                    padding: 10px 0 10px 0;
+                                }
+
+                                .collumn .citation {
+                                    font-family: 'Playfair Display', serif;
+                                    font-size: 36px;
+                                    line-height: 44px;
+                                    /*font-style: italic;*/
+                                    text-align: center;
+                                    font-weight: 400;
+                                    display: block;
+                                    margin: 40px 0 40px 0;
+                                    font-feature-settings: "liga", "dlig";
+
+                                }
+
+                                .collumn .citation:before {
+                                    border-top: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 16px;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .collumn .citation:after {
+                                    border-bottom: 1px solid #2f2f2f;
+                                    content: '';
+                                    width: 100px;
+                                    height: 16px;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .collumn .figure {
+                                    margin: 0 0 20px;
+                                }
+
+                                .collumn .figcaption {
+                                    font-style: italic;
+                                    font-size: 12px;
+                                }
+
+                                .media {
+                                    -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
+                                    filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
+                                    mix-blend-mode: multiply;
+                                    width: 100%;
+                                }
+
+                                /*________________________________________________________________________________________________________________________________*/
+                                /*MEDIAQUERIES*/
+                                @media only all and (max-width: 1300px) {
+                                    .weatherforcastbox {
+                                        display: none;
+                                    }
+
+                                }
+
+                                @media only all and (max-width: 1200px) {
+                                    .collumn {
+                                        width: 80%;
+                                    }
+
+                                }
+
+                                @media only all and (max-width: 900px) {
+                                    .collumn {
+                                        width: 80%;
+                                    }
+
+                                }
+
+                                @media only all and (max-width: 600px) {
+                                    .collumn {
+                                        width: 100%;
+                                    }
+
+                                    .collumn+.collumn {
+                                        border-left: none;
+                                        border-bottom: 1px solid #2f2f2f;
+                                    }
+
+                                    header {
+                                        max-width: 320px;
+                                        font-size: 36px;
+                                        line-height: 54px;
+                                        overflow: hidden;
+                                    }
+
+                                    .content {
+                                        margin: 30px 6% 0 5%;
+                                    }
+
+                                }
+                            </style>
+                        </head>
+                        <body translate="no">
+                            <link
+                                href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic"
+                                rel="stylesheet" type="text/css">
+                            <meta name="viewport" content="width=device-width">
+                            <div class="head">
+                                <div class="headerobjectswrapper">
+
+                                    <header id='title'>Sushant Singh Rajput : Death & aftermath</header>
+                                </div>
+                                <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
+                            </div>
+                            <div class="content" id='sectionmaster'><div class="collumns">
+                            <div class="collumn" id='section1'><div class="head"><span class="headline hl3">Sushant Singh Rajput : Nepotism Kangana</span></div><p>Sushant Singh Rajput was an aspiring actor who started his career from television serials (2008). Later, he got a chance to act on big screen "Bollywood" with his is very first movie "Kai Po Che" (2013). He was highly appreciated for his acting skills and dedication seen on the big screen.  Unfortunately, he committed suicide as stated by the Mumbai Police on 14 June, 2020. His last movie, "Dil Bechara" was released on an online platform after his unfortunate demise.The movie broke records and became the highest-rated Indian movie.
+               The reason of his suicide is still not known though various facts are being showered  on social medias and news. Above all, Nepotism in Bollywood somehow affected the life of the late actor. He was just 34 and was going through depression. He was going through several hardships in the world called "Bollywood", he could not suffer the humiliation as he was seen saying that "Bollywood is not accepting him and no one invites him to their parties". He felt alienated. He was disturbed by the fact that, true talent is not given the chance that it deserves and many a times, that very chance is taken away and given to the so-called "star kids". 
+
+
+        However, Kangana Ranaut being vocal and outspoken, bashed the so-called people, who in her eyes was responsible for featuring "star kids" and not giving any value to an outsider. Kangana also gave the title of "Bollywood Mafia" to Karan Johar while sitting  in front of him and bashed for featuring "star kids" and promoting Nepotism in Bollywood. However, Sushant  was not vocal like Kangana but he too spoke about nepotism before Kangana, On August 14, 2015 he shared a quote through his Twitter account - "We promote family values here almost as often as we promote our family member". This clearly shows his state of mind and experience. Kangana stated, no one from bollywood except Sushant supported her the topic of nepotism. She admitted that many people from Bollywood tried to ruin her career and wanted to  show her in bad light. She fought really hard to fight Nepotism. However, Sushant was going through  similar hardships but he was not vocal like her, he was an introvert. According to Kangana,  It was not easy for him to face unnecessary rejection and criticism by the the so-called "Bollywood biggies". Many brands dropped kangana for the battle she rose. However, her hard work paid her with Padmashree and National Award. Recently, Kangana appeared in a channel where she made many shocking revelations. She exposed the culture of nepotism in Bollywood, she gave a hint about Sushant's murder and not suicide. However, many people called her an "attention seeker" for this, while she is strengthening the case with her testimony on Bollywood nepotism. People blamed her that she is doing all this for selfish reasons. On this, she said, "Yes it is about Sushant but, it is also about my life because people are still ganging up on me". We know, "it's easier to be a part of herd than standing against all."  Kangana being bold, strong and confident in her statements and not seeking "mob mentality". The word "nepotism" has arrived several times in Bollywood, which by time, diminishes. But, the death of Sushant Singh Rajput has left a huge and deep Impact among people and his fans. After this unfortunate demise,  many people came to know about the dark reality behind the big screen and started hashtags on social medias such as #BoycottBollywood  #BoycottNepotism. Also, the followers of Karan Johar and "star kids" such as Sonam Kapoor, Alia Bhatt, Salman Khan was declining day by day.Thus, the sudden death of sushant has resulted in a change that was unexpected, however we don't know how far this change will last.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section2'><div class="head"><span class="headline hl3">Sushant Singh Rajput : Background</span></div><p>Sushant Singh Rajput was no doubt a brilliant actor and man of great intelligence. He was born in Patna, Bihar and after his mother's demise in 2002 which left the family devastated, they moved homes to Delhi. Right after his schooling from Kulachi Hansraj Model School, Delhi, Rajput secured admission in Delhi Technological University, New Delhi to pursue his Bachelor's degree in Mechanical Engineering. He even secured an AIR #7 in 2003 AIEEE. Along with this, he was also a Physics National Olympiad winner and managed to clear more than seven engineering entrance exams. his passion for theatre took over in his third year of college and he dropped out to pursue his dream of acting. He began with taking classes to polish his acting skills and also joined Shiamak Davar's dance group. Davar was so impressed with Rajput's flawless dancing talent that he gave him the opportunity to perform at the Commonwealth Games as well as the Filmfare awards. After that, his road to success just kept getting clearer and he joined Barry John's drama classes and that is when he caught the eye of a casting director for Balaji Telefilms who watched him perform on stage. Impressed by his talent, Rajput was then offered his first on-screen role in the show Kis Desh Main Hai Mera Dil as Preet. It was only after this that he bagged his evergreen role of Manav Deshmukh in the show Pavitra Rishta which turned him into a household name. The show given him a ‘big break’ and led him to the doors of Bollywood. He debuted in the film Kai Po Che! which was a huge success and everyone adored the new boy in town. However, things really changed for the best for him when he starred as former Indian cricket team captain MS Dhoni in the cricketer’s biopic --  ‘MS Dhoni- The Untold Story’. This movie took his name among the top leading actors in the Indian film industry and the film was marked as one of the highest-grossing Bollywood films of 2016. He dated his Pavitra Rishta co-star Ankita Lokhande for about six years and even though there were rumours of the couple getting married, they unfortunately ended their relationship in 2016. His last commercial film that taught us an important lesson was Chhichore. The movie’s message to the audience was that "no matter how difficult things, gets sucide is never  an option". It took him into one of the top leading actors in the Indian film industry and the film was successfully marked as one of the highest-grossing Bollywood films of 2016. He dated his Pavitra Rishta co-star Ankita Lokhande for about six years and even though there were rumours of the couple getting married, they unfortunately ended their relationship in 2016. His last commercial film that taught us an important lesson was Chhichore. The movie’s message to the audience was that "no matter how difficult things, gets sucide is never  an option".</p></div></div><div class="collumns">
+                            <div class="collumn" id='section3'><div class="head"><span class="headline hl3">Sushant Singh Rajput : Death reason</span></div><p>A casual day on June 14th, 2020 and suddenly an extremely startling news came of Sushant Singh Rajput's demise. The news left everybody in a shock after hearing that Sushant committed suicide in his residence in Bandra. Post-mortem report stated "asphyxia due to hanging." Sushant Singh Rajput was no more. The news shook each and every person to the core. Everyone wanted to know why he died. Mumbai Police stated that Sushant attempted a suicide because he was going through depression. But this reason was not strong enough and that is why most of the people did not believe that such a genius and brilliant person would be weak to such an extent that he could commit suicide. There was no suicide note found at the spot which made it more difficult to believe that it was a suicide. Mumbai Police started the investigation and was reported that Sushant was depressed from last six months. The entire celebrities of Bollywood and Hindi television serials mourned at the loss of such a shining star and shared their feelings through their social media posts. Soon after that, every second people on social media started to speak about depression and ask to seek help if anyone is going through this. This incident surely left a deep pain in everyone's heart.
+ 
+Every news channel was devoted to Sushant Singh Rajput and disclosed the details of how, when and where he committed suicide. The details about every minute of Sushant before his death was for the topic of the town. It was stated that half an hour just before his death, he  went to the market to buy a juice and later he went into his room and closed the door. Soon the  house-help came and called him but only to find, there was no response. Later, police was informed and they found  Sushant hanging in his room with the  green colour cloth tied around his neck. This story was illustrated in every news channel.  
+
+
+However, when Kangana Ranaut came out with a video, where she mentioned that it was a murder and not suicude. According to Kangana, the main reason is nepotism in bollywood to the pressures of which he could not stand and  face further humiliation. The fact that the star kids were only given the chance in Bollywood by taking away the chance of an outsider.  If that too was not the thing, one may notice that the work  of an outsider was neither appreciated in the award shows nor in the Bollywood, only because they do not have any relation in Bollywood for guidance and support. She further stated that Sushant was unable to cope up with the pressures, humiliation that he  was getting from the famous Bollywood celebrities who were highly intolerant towards any outsider. Sushant was found "literally urging" (in one of the comments of his social media post) to one of his fan  to watch his movie or else, Bollywood will not accept him and he will be thrown out. He was also disturbed by the fact how his very fair chance was given to other star kids through unfair means. Recently, Kangana appeared on a channel, Republic TV, where she  exposed the nepotism culture in Bollywood and blamed the very system that led Sushant to kill himself. This ultimately encouraged others bollywood celebrities to join her and expose the culture of nepotism in Bollywood. 
+
+
+Sushant was replaced from  many films. In an old tweet by author Chetan Bhagat, in which he announced Sushant Singh Rajput casting in the film adaptation of his novel "Half Girlfriend", but later on Sushant was replaced by Arjun Kapoor and a similar thing happened in the movie "Fitoor" which was directed by Abhishek Kapoor, where Sushant was replaced by Aditya Roy Kapoor. 
+
+
+Once, Sushant was asked in an interview that if he regretted not being a part of those films, on that the actor said "No. I don't I have any regrets. This is something I will follow for the rest of my life, the rest of my days that I am working in this industry. If I like the script and give you my words, I won't ditch you just because I find some other film more exciting and bigger than the film I said yes to."
+
+
+As investigation is processing new information are coming up regarding his death. Sushant was kicked out of many projects. With passing time many popular celebrity name and underworld involvement is also suspected. More then 50 people's statement has been recorded till now in this case.
+
+
+Another dynamics in his suicide case involved is girlfriend Rhea Chakraborty, with whom he was in a relationship for a year and a half. The New Twist in the Case is that Sushant Singh Rajput's father has filed a FIR against Rhea Chakraborty in Rajiv Nagar Police Station at PATNA. The FIR has been lodged against Rhea chakraborty under sections 340, 342, 380, 406, 420, 306 of the Indian Penal Code(IPC). Five other persons have also been reportedly booked for abetment to suicide, cheating and conspiracy.  Sushant's father in his FIR has also alleged that Sushant had Rs 17 crore in his account, but within a month Rs 15 crore was transferred to the bank accounts not linked to him. 
+This also puts a question mark on Mumbai police. 
+Why the Father of Sushant has to come and complain that there is a 15 Crore transaction in Sushant's Account.
+Why Mumbai police has not sealed his house, electronic Gadgets, bank accounts Etc yet ? Even Rhea wants transfer of Patna  FIR to Mumbai. She deleted her Instagram pic with Sushant before his death as well as Mahesh Bhatt photo with her.
+
+
+According to the case filed by  Sushant's father, states that he does not believe in Mumbai police and wants a CBI enquiry against Rhea, who according to him was responsible for his death. He further states that his son was fine but suddenly what happened to him as soon as Rhea came into his life.  He mentioned that Sushant's sister went to meet him after all this mishaps happened between Rhea and Sushant. She consoled him that everything would be fine. As soon as his sister returned to her house, the very next day we came to know that Sushant had committed suicide. However, many reasons of his death have been flourished in social media with several types of guess-proofs by his fans and followers. But, according to the latest news, the Maharashtra government has denied that there would be any need of CBI enquiry for this case. He said that Mumbai Police are enough to investigate such cases and once the investigation is done, the details will be disclosed. However,  the fans and admirers of the late actor continue to urge the government.
+
+
+All that can be said is as the investigation is proceeding the more it is getting complicated. It won't be suitable to call it a suicide. The reason for death was hanging but reason for that is yet not clear.
+
+
+It was a suicide or murder, still a big question.The whole country is on fire and this time not only the social media but are in unison to give justice for Sushant because according to his close friends and his family members, he is not the type of person who can commit suicide. 
+
+
+Sushant's death reason is still a mystery for everyone. Investigation is going on and his father is fighting for justice. Nation wants answer and justice for Sushant.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section4'><div class="head"><span class="headline hl3">Sushant Singh Rajput and Ankita Lokhande</span></div><p>Not all hello's last forever, not all goodbyes are meant to see a new unison in future. Likewise Ankita Lokhande and Sushant Singh Rajput first met on the set of their debut show "pavitra rishta" in 2009. This main couple face of Pavitra Rishta managed to win everyone's heart with their simplicity. Initially, there was a lot of difference between the two on the sets, during shooting, both did not like to see each other's gross. After fighting for a long time, they both understood that they were fighting unnecessarily. Thus, the journey of friendship of started and then changed to love. Sushant took the first step and he was the one who first said that their friendship was the first step of love. It took so much efforts from Sushant to make Ankita finally say YES to him. A much loved on screen and off screen television couple!They both dated for 6 long years. Sushant also proposed Ankita publicly in a dance reality show "Jhalak Dikhla Jaa" which left everyone awfully surprised (2011). It was completely unexpected for Ankita. Ankita was so happy that she said:
+"He's romantic and pampers me alot. In fact there are a lot of similarities between him and Manav, the character that he plays on TV. He's shy and soft-spoken, but of late he is learning to express his feelings better than before."
+From that very day,  they officially announced about their relationship. They were in a long -term relationship and were also seen speaking about tying their knot soon.  In the year 2013 SSR kick started his career in film industry with "Kai Po Che!" Even after working in different platforms they stayed together and they were often seen together in movie screening and award functions.
+
+
+But as time never stays the same, so did their relation. In 2016 the couple ended their 6 long years of courtship. This incident was the talk of the town but the two never revealed the reason of separation.
+
+
+Even after all this the estranged couple were in touch through virtual medium. Later, it was proclaimed by them that things were cordial between them. 
+They both ended their relationship. Sushant officially declared about their breakup through his Twitter handle while Ankita maintained a dignified silence. After their breakup many rumours spread like, Ankita being insecure and Sushant being a womaniser.  According to some sources,  it was a publicity stunt to create buzz over his upcoming movie "MS Dhoni -the untold story". In an interview, Sushant opened up and said that none of  the rumours were true as neither Ankita was an alcoholic nor he was an womaniser. He denied such rumours,  however he wanted that he must be known for his movies rather than his love life. When Ankita faced such questions in an interview, she expressed her shock and resentment by saying that such speculation were "unnecessary and uncalled for". She stated that she is most hurt with the rumours of her insecurity towards the relationship to which she admits being quite possessive while she ridicules the rumours about having any issue with Sushant's closeness with his co-stars on-screen. She said that she always admired and respected Sushant for his loyalty.
+   After their break-up, Sushant moved on and was busy shooting for his next movie "Raabta"  with his co-star Kriti Sanon while Ankita was still holding upon their love. Later, she too moved on, as her social media posts were seen captioned as focusing on self-love and growth. 
+After the sudden death of Sushant on 14th June, 2020, she met his parents to console them and even attended the last rites of  the actor. After one month of his death she posted a picture through  social media, a Diya lighting in front of the God and captioned it as "CHILD OF GOD". Her recent two posts were related to prayers for the late actor's departed soul. Recently, with the new facts opening up in the  shocking controversies with Rhea Chakraborty blamed for abeting him to suicide, theft, and even cheating him financially as stated by Sushant's father filed in the FIR fired by him against the late actor's girlfriend, Rhea Chakraborty. Ankita took up to an enigmatic post to her social media handle that read, "Truth wins".Thus, even after the death of Sushant, Ankita is there to console and support his family and ask justice for Sushant.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section5'><div class="head"><span class="headline hl3">Sushant Singh Rajput : Chhichhore</span></div><p>Chhichhore is 2019 film directed by Nitesh Tiwari starring Sushant Singh Rajput, Shraddha Kapoor, Varun Sharma.
+
+This movie looks simple yet promising. This was SSR last film at the theatres and also the biggest hit. Chhichhore ranked 8th in the Top rated movies(2019) list of Bookmyshow (All languages) with close to whopping 3 lakh votes. Chhichhore lifetime box office not only beat GullyBoy but also Kesari & Bharat making it 30th highest grosser of Bollywood! With 153Cr+ BO, it left Dilwale & Saho behind but with powerful PR, its buzz & success were killed.
+No one knew chhichhore was such a huge hit. In fact there was negative PR calling it a copy of 3 Idiots. Comedy scenes in this movie were perfect with the standards. Chhichhore is the best film in recent last starring a new generation actor. It is Sushant's  highest grossing film. It has quality plus BO numbers. Its Success deserves to be talked about more which people still don't. This movie deserves a Big Digital award at least! not only due to the unfair treatment it received at Filmfare awards or ZeeCineAwards but also the 'cause' that it brought forth!</p></div></div><div class="collumns">
+                            <div class="collumn" id='section6'><div class="head"><span class="headline hl3">Sushant Singh Rajput : Educational qualification</span></div><p>Sushant's tragic death sparked an outpouring of grief in everybody. 
+
+The national rank holder Shushant studied in St. Karen's High School in Patna. Later his family moved to Delhi, it was the same year when he lost his mother. This incident devastated the entire family but Shushant the most as he was very close to his mother than any other member of the family, after this he worked even harder. He got admitted to Kulachi Hansraj Model School in New Delhi. The hard work did pay off, he became national Olympiad winner in physics. And cleared 11 engineering entrance exams including ISM [now  known as IIT(ISM) Dhanbad]. He got admitted in DCE (now known as DTU) for a B.tech degree in mechanical.
+
+
+In college he joined art classes that was dancing and acting, with which he connected so naturally. And he ended up dropping out of college in his third year. Once SSR said, "my friends called it a mistake, but I'm listed on the first position in college alumni." Even after getting into entertainment business his interest in science and astrophysics never fade. He used to study about space and it's working. As we often got glimpse of telescopic images of space on his social media handle. 
+
+
+The only regret Sushant had was that his mother didn't get see any of his achievements. His demise is not just a lost for his family but to entire nation.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section7'><div class="head"><span class="headline hl3">Sushant Singh Rajput , Ekta Kapoor</span></div><p>Ekta Kapoor is an Indian Television producer, film producer, and director. She gave Sushant Singh Rajput his Big TV break with a daily soap entitled "Pavitra Rishta". When Sushant moved to Mumbai to join XYZ theatre group where the casting team of Ekta's Balaji Telefilms spotted him during a play and asked him to give audition for the role of "Preet Juneja" for "Kis Desh mein Mera Dil". Ekta Kapoor casted him as a lead  for "Pavitra Rishta" when Sushant was already playing a lead role in "Kis Desh mein hai meraa Dil",  Zee TV did not accepted him first. However Ekta Kapoor convinced them. Both of his daily soaps were produced by Ekta Kapoor's Balaji Telefilms.
+The main lead of the series was Sushant as "Manav" and Ankita Lokhande as "Archana". This was his second television show, and it gave him immense popularity. Soon it became a household name for the people who loved and admired the show. With nearly 1500 episodes, Ekta Kapoor's "Pavitra Rishta" was amongst the most popular serial in 2009.
+After 1.5 year of the show, news came about Sushant quitting the show. Many legal actions would have been taken against him, as quitting such a popular show was not easy. But producer of the show, Ekta Kapoor even knowing there would be huge decline in TRP after Sushant's exit, she believed in him and also helped him in securing his first movie "Kai Po Che". He always looked at Ekta Kapoor as his mentor and often praised her in his interviews, as she was the one who gave him big break in television. The show was outing long before he cracked Bollywood. The Show was on for many years and later Sushant shifted to films and his character in the serial, was replaced by Hiten Tejwani where he and Ankita played parents to grown up kids.
+
+
+A week before Sushant Singh Rajput death Ekta shared a flashback post on Instagram of her evergreen show "Pavitra Rishta" where is she wrote, "After win 35 of 50 slots we were out of top 50! This show was a chance Zee TV gave us based on a show #tirumatiselvum! wanted to cast a boy as lead who was doing second lead on our other show! D creative team was adamant he didn't look the part! We convinced them his smile would win a million hearts... and it did @sushantsinghrajput." For this Rajput wrote, "And I'm forever grateful to you ma'am." Ekta responded to his comment, "sushiiiii lobeeee u." with several hearts emojis. 
+
+
+
+
+ After the sudden demise of Sushant, Ekta was heartbroken and deeply shocked as she knew him personally, from 2008. She shared a heartfelt post through her social media handle,  a picture of her recent chat with Sushant and wrote, 
+"Not fair sushi! One week everything changed! Not fair my baby!"
+ Just 3 days after Sushant's death, a case was filed by advocate Sudhir Kumar Ojha against Ekta Kapoor and 7 others. The complaint mentioned that situation was created which forced Rajput to take the extreme step. According to the advocate, Ekta Kapoor was linked with Sushant's death. He registered a case against 8 persons of Bollywood, he filed the case in a local court of Muzaffarpur, Bihar. Ekta Kapoor, Salman Khan, Karan Johar, Aditya Chopra, Sajid Nadiadwala, Bhushan Kumar, Sanjay Leela Bhansal, these bollywood celebrities whom the advocate considers guilty over Sushant's death. The advocate alleged that such prominent Bollywood celebrities forced Sushant to "commit suicide under a conspiracy" which amounted to murder. The complaint further stated that these persons did not let Sushant's movies get released and he was not even invited to film functions because of them.
+
+
+While, Ekta Kapoor expressed her resentment to this complaint filed against her, through her social media post. This news disheartened Ekta Kapoor because she was the one who gave Sushant his biggest break in Television. She took to Instagram and wrote,
+ "Thank you for the case for not casting sushi..... when actually I LAUNCHED HIM. I'm beyond upset at how convoluted theories can b! Pls@let family and frns mourn peace! Truth shall@prevail. CANNOT BELIEVE THIS!!!!!
+
+
+Ekta has also organised a prayer meet for Sushant Singh Rajput at her residence on June 18. Also, Ankita Lokhande was seen leaving Ekta's residence after discussing the prayer meet. Ekta had posted a collage of pictures with sushant captioned as, 
+"Rest in peace Sushi!!! We will smile and make a wish when we see a shooting star and know it's u!!!  Love u forever".
+
+
+More than a month has passed and now it seems that the bruises and laceration created by the tragic death of Sushant has started healing but controversies are still riveting the industry. People are curious to know about the truth behind the death of their beloved actor. 
+
+
+Now a month after Sushant Singh Rajput's demise, producer ekta kapoor has joined hands with Tarun Katial, Zee5 India, to launch the Pavitra Rishta fund to spread mental health awareness among people. Also Ekta and Ankita Lokhande (former girlfriend of Sushant) are in talks to bring Pavitra Rishta back on television. The show was close to Sushant's heart as it gave him the platform to scale new heights and both Ekta and Ankita feel that a new season will be the best tribute to the deceased actor.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section8'><div class="head"><span class="headline hl3">Sushant Singh Rajput : Investigation</span></div><p>On 14th of june, 2020, a 34 year young Bollywood actor was found dead hanging from the ceiling fan at his home in Bandra. The Mumbai Police launched an investigation and the postmortem report concluded "asphyxia due to hanging". The report further stated no foul play was found. But with time it is getting even more unexplainable. But after examining it deeply it's difficult to call it a suicide. Although, his death rose a lot of questions with rumours and speculation. Mumbai police is trying to find out the cause of death.  People are not ready to believe that Sushant can commit suicide. Sushant's family friends and fans are demanding CBI inquiry. 
+
+
+However,  the Mumbai Police stated that the death is being treated as suicide. Thus, the investigation process is still going on and many bollywood celebrities had been interviewed by the Police for the case. More than 40 people had given their statement to Mumbai Police. While,  Anil Deshmukh, the Maharashtra Home Minister denies for any CBI inquiry in the suicide case and said that Mumbai Police will continue its investigation. 
+
+
+However,  people and fans are found urging to the government for the CBI inquiry in order to disclose the details whether it is a suicide case or a well-planned murder. There is still no answer to this question, though a month has already passed after Sushant's death.The commotion for handing over the case to Central Bureau of Investigation is at peak.
+
+
+Sushant's death has sparked a debate on several topics such as depression,  mental health and nepotism practices in bollywood. Initially after actor's tragic death, a case was filed against well known people of industry accusing them of not letting Sushant's movies to release and not casting him in any projects.  A case has been filed against Karan Johar, Ekta Kapoor, Salman Khan,  Sanjay Leela Bhansali and four others in Bihar High Court by an advocate Sunil Kumar Ojha, alleging that Sushant has been denied oppotunities  due to nepotism, leading to his suicide. Also, Kangana Ranaut and her team has started a strong campaign against nepotism in Bollywood. 
+
+
+On 25 July, 2020, Sushant's father, K.K Singh has filed a case in Patna, where he resides. The case is against Rhea Chakraborty and six others including her family members for abetment of suicide. Rhea Chakraborty was the girlfriend of the late actor. She was alleged for torturing Sushant mentally and using him financially. Moreover, Sushant had Rs 17 crore in his account, but within a month, an amount of 15 crore was transferred to the bank accounts not linked to him. He further said that Rhea gave Sushant overdoses and told the media that he was suffering from dengue. Rhea changed Sushant's mobile number so that his family couldn't stay connected with him. Sushant wanted to quit  films and take up organic farming in Kerela, but Rhea threatened him that if he does so, she would leak his medical reports to media. On 8th June, she left his house with cash, jewellery, laptop, credit cards, his important documents and medical reports. The Bihar Police registered the case under various IPC section including 341 (wrong restraint), 342 (wrong confinement), 380 (theft in dwelling house), 406 (criminal breach of trust), 420 (cheating) and 306 (abetment of suicide).
+
+
+ It has been also suspected that when Disha, Sushant's ex- manager committed suicide on 9th june, Sushant was scared that Rhea may get him blamed for Disha's death. Also Sushant's Bodyguard's Statements has been noted. According to him, Rhea did NOT let Sushant meet anyone. She used to inject him with heavy doses of medications to make him UNCONSCIOUS. He did not have any expenditure in last year. 
+
+
+According to PTI reports, Siddharth pithani, a friend and flatmate of Sushant, wrote to Mumbai Police that he was forced by Sushant's family to give statement against Rhea Chakraborty. In a petition filed at the Supreme Court, Rhea claimed she had no role in the actor's death and was falsely implicated by Sushant's father. She also sought transfer of the probe in the FIR to Mumbai,  saying that there cannot be an impartial investigation in Bihar. 
+
+
+A high-level meeting was held at Bihar DGP's office at Patna over the investigation being conducted by Bihar Police Team in Mumbai regarding the case. After this, the investigation has turned into a tug of war between the Bihar and Mumbai police. The leader in the two states clashed over the probe with Bihar deputy chief minister summons the Mumbai police for not cooperating with the state's investigators. 
+
+
+On the other hand, Bihar police recorded the statement of Dil Bechara director, Mukesh Chhabra and Mahesh Shetty, close friend of Sushant. Bihar police reached Ankita Lokhande residence to record her statement too, the cops also visited Copper Hospital seeking the actor's postmortem report. Not only Sushant Singh Rajput's family, friends, and fans but now the political parties are also involved in this mysterious murder case. The Union minister Ram Vilas Paswan joined the demand for a CBI probe into Sushant Singh Rajput said, "only the central agency can do justice in the matter amid and the war between Bihar and Mumbai police". Several other politicians from Bihar have been made similar demand, Rhea Chakraborty had too requested for CBI probe prior this month.
+
+
+However, Subramanyam Swami wrote letter twice to Our honorable Prime Minister,  Narendra Modi to probe a CBI inquiry for the case. Also, the former CM of Maharashtra, Devendra Fadnavis has supported a CBI inquiry for the case, he tweeted, "There is a huge public sentiment about handling over Sushant Singh Rajput case to CBI but looking at the reluctance of the State Government at least ED can register  an ECIR since misappropriation and money laundering angle has come out.
+The Enforcement Directorate (ED) on 31 july, filed a case of money laundering in connection with the case of the death of Sushant Singh Rajput. They said an Enforcement Case Information Report (ECIR) has been filed against the accused named in the Bihar Police FIR that includes Rhea Chakraborty and six others.
+Rhea chakraborty reaction came hours after Enforcement Directorate case, she completely denied with this statement and gave her reaction through social media as "I have immense faith in God and the judiciary. I believe that I will get justice. Even though a lot of horrible things are being said about me on the electronic media,  I refrain from commenting on the advice of my lawyer as the matter of sub judice TRUTH SHALL PREVAIL" 
+
+
+Where as it is very frequently seen Sushant's sisters posting pictures with Sushant and appealing for justice. Every fan in the country is wishing the same for the late actor. JUSTICE.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section9'><div class="head"><span class="headline hl3">Sushant Singh Rajput, Salman Khan and Ekta Kapoor</span></div><p>After the sudden death of the Bollywood actor, Sushant Singh Rajput in his Bandra Apartment, "due to hanging". Many questions has been raised about his death and the reason following it. A lot of things are revealed after his demise. The culture of nepotism in bollywood is exposed. Also,  a case has been filed among 7 personalities of Bollywood by an advocate of Patna, Sunil Kumar Ojha. He alleged Salman Khan, Ekta Kapoor, Sanjay Leela Bhansali, Karan Johar, Aditya Chopra, Sajid Nadiadwala, Bhushan Kumar they did not let Sushant's movies get released. Because of the nepotism and favouritism in the Bollywood industry, Sushant Singh Rajput was sidelined by the big banners. Even he was replaced from some movies. A tweet from February 2020  is firing the social media comma stating that major production houses like Dharma Production, Yash Raj films, Balaji telefilms, SKF, EXCEL ENTERTAINMENT, SLBFPL banned Sushant. 
+
+
+When we talk about Salman khan it is said that he is  not a man who forgets and forgive easily. Salman is godfather to many especially Starkids, one of them is Sooraj Pancholi. Reportedly, Sooraj and Sushant indulged in an argument and Salman jumped in between and warned Sushant to stay away. Later, it was rubbish calling it as a rumour by Sooraj. But after Sushant's death,  people and fans are highly raged upon him as reports emerged  that Sushant got a firing from Salman himself. And this is how Sushant came into the radar of Salman. It is being  reported that his films has been taken away because Salman had ordered the Bollywood Producers to do so. 
+
+
+Recently, Salman khan's ex manager Reshma Shetty was interrogated by the cops regarding the late actor's suicide case. According to the investigation, Reshma was questioned for about 5 hours. The details of the statement are yet to be known. Reshma, the head Bollywood leading talent has helped Salman to get best deals and films, however, in 2018 the two parted there ways for an unknown reason. She has been linked with many big superstars including Salman khan, Akshay Kumar, Alia Bhatt.
+
+
+Also,  Sushant's relative Devej Narain alleged Salman Khan's involvement in the actor’s death by suicide. He took to his Twitter handle to make these allegations against Salman Khan. Adding further he mentioned that salman tried to blow up his daughter's car and posted derogatory remarks. And later, Narain's account was deleted from Twitter and fans took to social media to demand justice for Sushant Singh Rajput.
+
+
+Ekta Kapoor is an Indian television and film. producer, who gave Sushant his biggest TV break in 2008 with two daily soaps in two different channel. The second show gave him immense popularity and he soon became a household name. Later, he shifted to films in bollywood. However, he always thanked Ekta for giving him his first break in television. 
+
+
+After coming to know about the case following Sushant's suicide  was against Ekta too. She was heart-broken and she took  to her social media handle and wrote,  "Thank you for the case for not casting sushi..... when actually I LAUNCHED HIM. I'm beyond upset at how convoluted theories can b! Pls@let family and frns mourn peace! Truth shall@prevail. CANNOT BELIEVE THIS!!!!!"  But then after few hours she deleted the post.
+
+
+Before the complaint few days back, Ekta has joined hands with Tarun katial, Zee5 India, to launch the pavitra rishta fund to spread mental health awareness among people. Also, she is in terms to start a new series of "Pavitra Rishta" in order to give tribute to the deceased actor, as this show was close to Sushant's heart. Also, Ekta organised a prayer meet at her house for Sushant's departed soul.</p></div></div><div class="collumns">
+                            <div class="collumn" id='section10'><div class="head"><span class="headline hl3">Sushant Singh Rajput on Koffee with Karan</span></div><p>After Sushant's tragic demise many people and things are being linked to Sushant. One of the most talked about topic is Karan Johar's show koffee with Karan. The show and Karan has been facing many troll for the above reason.
+           Talking about "koffee with Karan" it is a talk show hosted by Karan Johar where celebrities are invited for chit-chat while sipping coffee on the show. Though Sushant was never invited on the show but his name was always heard as one of the options of the asked questions. And often he was ranked last, even stars like Alia and Sonam gave uncanny  reaction on his name which brought them massive criticism.
+           In an interview Ranbir Kapoor said that, "I am tired of this show, I was forced to appear on the show. Anushka and I were actually going to protest to stop this. It is not fair as he is making money out of us, we come on the show and get screwed through the year and it's not right."
+        Koffee with karan is a controversial chat show.  We are well aware of the fact that indians are fond of knowing the personal lives of the people and that too the people they look up to and admire. Here he interacts with several Bollywood personalities (mostly Star kids), Moreover, the host is seen talking about  their personal affairs and the latest bollywood gossips which creates buzz to this show. What question should be asked to the actors coming on the show, is already decided by the creative team and writers and each and every questions are made to create lot of buzz for the viewers even the guest on the show gets their script to answer their questions. The guest here are zero paid but the gift hampers are enough to dress their wardrobe, whose budget is around 5-10 lakh.  He even tries to know as many offscreen secrets as he can seek from them. 
+          Moreover, the outsiders are not invited to his show. According to a source, Karan does not want any outsider to gain fame through his show. He only invites big bollywood faces which would gain popularity and TRP to his show. Many Bollywood stars till now are not invited in his talk show and one of them is Sushant Singh Rajput.The most surprising thing was that karan never invited Sushant but talked about him in his every episode. His show got an agenda to demotivate the outsiders by talking lot of shit about there lifestyles. And it's very clear when you belong to the same industry and you get neglected by your co-stars it will make you feel like hell. Karan Johar never invited Sushant Singh Rajput on his show. It's mostly because Sushant Singh Rajput was an introvert guy who was not going to create controversies just for a chat show like others do. Sushant Singh Rajput was a type of guy who can answer rapid rounds without an intent to generate buzz and create ripples of sensation for the media like others. Karan Johar knew that and that is  why he never invited him on his show but in his every question Kjo made Sushant Singh Rajput the common name among the multiple choice answers for the guests. Some of the actoresses made fun of Sushant on national television and were keen to show that his name should not be known in this world of bollywood. Basically, The host knows how to target one person all the time and mock at him. In one of the episode, when Karan Johar asked Sonam Kapoor to rate the actors as Hot or Not, when Karan took Sushant's name Sonam replied 'huh'? She soon added saying- I mean I haven't seen his films. So I don't know."
+
+
+Likewise, Sushant Singh Rajput was humiliated by several bollywood personalities on Koffee with Karan show and there were very few of them who took his name with respect like in an episode Emraan Hashmi was asked by Karan to rank certain actors on the basis of their potential. The option included Sushant Singh Rajput, Arjun Kapoor, Sidharth Malhotra Varun Dhawan, Ayushmann Khurrana and Aditya Roy Kapur. Emraan instantly replied "Sushant, Varun and Sidharth," omitting the other altogether. Later on Emraan added "Sushant Singh Rajput has a Brighter future."
+
+
+All these didn't ended here. Karan Johar made 'Drive' with Sushant and kept on delaying it for 2 years to finally dumping it on Netflix. Sushant didn't even promote that film. Moreover,  Sushant's film 'Takadum' was delayed and shelved as it had similarities with Karan's Ae Dil Hai Mushkil movie. Sushant's last movie Dil Bechara was delayed for 2 years, as Karan Johar was the producer and he walked out. 
+ 
+Once, the Indian Cricket team player Hardik Pandeya and K. L Rahul got themselves into trouble when BCCI decided to suspend them as they were found speaking about their private life publicly in that very show.  Besides, the duo was fined 20 lakh each by the BCCI. 
+
+
+The show organises fun chat games like rapid fire round,  rating actors according to their preference under certain categories as provided by the host of the show. The bollywood celebrities gossip about their favourite co-stars, crush and dressing sense. The highlighting point is that only the celebrities who is close and friends to Karan are invited to his show. We know how much Karan is close to the star families, thus we see in most of the episodes, how celebrities are frank enough to talk about their personal lives infront of Karan. Not only that, Karan is intolerant  to the outsiders who are trying to build their career in the world of Bollywood. Through the normal chat games, the host finds a way to mock at the outsiders by raising topics as such worst dressing sense, overrated and underrated actors and their movies. They are no one to sit on a couch and judge any actor on the basis of his background. 
+
+
+Karan, too many times, got trolled in his show itself by many bollywood celebrities such as Kangana Ranaut, Amir Khan, Akshay Kumar and many others. According to them, this show is pure nonsense and involves unnecessary bitching. Total of six seasons has been aired till now and after Sushant's death, Karan faced too much trolling from the fans which led him to resign from the board of MAMI festival and further,  the decision was made that the show Koffee with Karan would go off-air. As people thought that Sushant and many outsiders like him feel alienated because of the people like Karan who officially made a show to bully them verbally and making them lose confidence, they are no one to judge them for the work they have done.Many other do not support this show because of the consequences they have to face later. Many fans consider the insulting comments about Sushant on the show as one of the reason for his depression.</p></div></div></div>
+                </body>
+                </html>
