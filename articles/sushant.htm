@@ -3,102 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <title>RanchiMall Content Collaboration Output</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/41cc35d596.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    
+        .hide {
+            display: none;
+        }
+    
         body {
-            font-family: 'Droid Serif', serif;
-            font-size: 14px;
+            font-family: 'lora', serif;
+            font-size: 16px;
             color: #2f2f2f;
+            margin: 0 1.5rem;
             background-color: #f9f7f1;
         }
-
+    
         header {
             font-family: 'Playfair Display', serif;
             font-weight: 900;
-            font-size: 80px;
-            text-transform: uppercase;
-            display: inline-block;
-            line-height: 72px;
-            margin-bottom: 20px;
-
-        }
-
-        p {
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .head {
+            width: 100%;
             text-align: center;
-            position: relative;
-
-
-        }
-
-        .headerobjectswrapper {}
-
-        .subhead {
+            font-size: 4rem;
             text-transform: uppercase;
-            border-bottom: 2px solid #2f2f2f;
-            border-top: 2px solid #2f2f2f;
-            padding: 12px 0 12px 0;
-
+            padding: 1rem 0;
+            letter-spacing: 6;
         }
-
-        .content {
-            font-size: 0;
-            line-height: 0;
-            word-spacing: -.31em;
-            display: inline-block;
-            margin: 30px 2% 0 15%;
-
-
+    
+        p {
+            margin: 1.2rem 0;
         }
-
-        .collumns {}
-
-        .collumn {
-            font-size: 14px;
+    
+        p::first-letter {
+            margin-left: 4rem;
+        }
+    
+        .head {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+    
+        .subhead {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+            padding: 0.6rem 0;
+        }
+    
+        .subhead::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 10%;
+            height: 0.1rem;
+            background: #2f2f2f;
+        }
+    
+        .weatherforcastbox {
+            position: relative;
+            width: 12%;
+            left: 10px;
+            border: 3px double #2f2f2f;
+            padding: 10px 15px 10px 15px;
             line-height: 20px;
-            width: 80%;
             display: inline-block;
-            padding: 0 1% 0 1%;
+            margin: 0 50px 20px -360px;
+        }
+    
+        .columns {
+            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+        }
+    
+        .column {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            display: flex;
+            flex-direction: column;
             vertical-align: top;
-            margin-bottom: 50px;
-            -webkit-transition: all .7s;
-            transition: all .7s;
+            margin-bottom: 4rem;
         }
-
-        .collumn+.collumn {
-            border-left: 1px solid #2f2f2f;
-        }
-
-        .collumn .headline {
+    
+        .column .headline {
             text-align: center;
             line-height: normal;
-            font-family: 'Playfair Display', serif;
+            font-family: 'lora', serif;
             display: block;
             margin: 0 auto;
-
-
         }
-
-        .collumn .headline.hl1 {
+    
+        .column .headline.hl1 {
             font-weight: 700;
             font-size: 30px;
             text-transform: uppercase;
-            padding: 10px 0 30px 0;
-
+            padding: 0.8rem 0;
+    
         }
-
-        .collumn .headline.hl2 {
+    
+        .column .headline.hl2 {
             font-weight: 400;
-            font-style: italic;
             font-size: 24px;
-            box-sizing: border-box;
-            padding: 10px 0 30px 0;
+    
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl2:before {
+    
+        .column .headline.hl2:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -106,33 +130,32 @@
             display: block;
             margin: 0 auto;
         }
-
-        .collumn .headline.hl2:after {
+    
+        .column .headline.hl2:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
             height: 13px;
             display: block;
             margin: 0 auto;
-
+    
         }
-
-        .collumn .headline.hl3 {
+    
+        .column .headline.hl3 {
             font-weight: 400;
-            font-style: italic;
             font-size: 36px;
-            box-sizing: border-box;
-            padding: 10px 0 30px 0;
+            padding: 0.8rem 0;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
         }
-
-        .collumn .headline.hl4 {
-            font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 30px 0;
+    
+        .column .headline.hl4 {
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl4:before {
+    
+        .column .headline.hl4:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -140,34 +163,31 @@
             display: block;
             margin: 0 auto;
         }
-
-        .collumn .headline.hl4:after {
+    
+        .column .headline.hl4:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
             height: 10px;
             display: block;
             margin: 0 auto;
-
+    
         }
-
-        .collumn .headline.hl5 {
+    
+        .column .headline.hl5 {
             font-weight: 400;
             font-size: 42px;
             text-transform: uppercase;
-            font-style: italic;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl6 {
+    
+        .column .headline.hl6 {
             font-weight: 400;
             font-size: 18px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl6:before {
+    
+        .column .headline.hl6:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -175,47 +195,42 @@
             display: block;
             margin: 0 auto;
         }
-
-        .collumn .headline.hl6:after {
+    
+        .column .headline.hl6:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
             height: 10px;
             display: block;
             margin: 0 auto;
-
         }
-
-        .collumn .headline.hl7 {
+    
+        .column .headline.hl7 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
+            font-size: 0.9rem;
             display: block;
-            padding: 10px 0 10px 0;
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl8 {
+    
+        .column .headline.hl8 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl9 {
+    
+        .column .headline.hl9 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
-
-        .collumn .headline.hl10 {
+    
+        .column .headline.hl10 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
-
-        .collumn .citation {
+    
+        .column .citation {
             font-family: 'Playfair Display', serif;
             font-size: 36px;
             line-height: 44px;
@@ -225,10 +240,9 @@
             display: block;
             margin: 40px 0 40px 0;
             font-feature-settings: "liga", "dlig";
-
         }
-
-        .collumn .citation:before {
+    
+        .column .citation:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -236,8 +250,8 @@
             display: block;
             margin: 0 auto;
         }
-
-        .collumn .citation:after {
+    
+        .column .citation:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -245,76 +259,70 @@
             display: block;
             margin: 0 auto;
         }
-
-        .collumn .figure {
+    
+        .column .figure {
             margin: 0 0 20px;
         }
-
-        .collumn .figcaption {
+    
+        .column .figcaption {
             font-style: italic;
-            font-size: 12px;
+            font-size: 0.9rem;
         }
-
+    
         .media {
             -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
             filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
             mix-blend-mode: multiply;
             width: 100%;
         }
-
+    
         /*________________________________________________________________________________________________________________________________*/
         /*MEDIAQUERIES*/
-        @media only all and (max-width: 1300px) {
+        @media all and (max-width: 1280px) {
             .weatherforcastbox {
                 display: none;
             }
-
         }
-
-        @media only all and (max-width: 1200px) {
-            .collumn {
-                width: 80%;
-            }
-
-        }
-
-        @media only all and (max-width: 900px) {
-            .collumn {
-                width: 80%;
-            }
-
-        }
-
-        @media only all and (max-width: 600px) {
-            .collumn {
-                width: 100%;
-            }
-
-            .collumn+.collumn {
-                border-left: none;
-                border-bottom: 1px solid #2f2f2f;
-            }
-
+    
+        @media all and (max-width: 640px) {
             header {
-                max-width: 320px;
-                font-size: 36px;
-                line-height: 54px;
-                overflow: hidden;
+                font-size: 2.5rem;
             }
-
-            .content {
-                margin: 30px 6% 0 5%;
+        }
+    
+        @media all and (min-width: 640px) {
+            body {
+                margin: 0 12vw;
             }
-
+    
+            .columns {
+                margin: 0 2vw;
+            }
+        }
+    
+        @media all and (min-width: 1280px) {
+            body {
+                margin: 0 20vw;
+            }
+    
+            .columns {
+                margin: 0 2vw;
+            }
+        }
+    
+        @media all and (min-width: 1920px) {
+            body {
+                margin: 0 32vw;
+            }
+    
+            .columns {
+                margin: 0 4vw;
+            }
         }
     </style>
 </head>
 
 <body translate="no">
-    <link
-        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic"
-        rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width">
     <div class="head">
         <div class="headerobjectswrapper">
 
@@ -323,8 +331,8 @@
         <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
     </div>
     <div class="content" id='sectionmaster'>
-        <div class="collumns">
-            <div class="collumn" id='section1'>
+        <div class="columns">
+            <div class="column" id='section1'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput : Background</span></div>
                 <p>Sushant Singh Rajput was no doubt a brilliant actor and man of great intelligence. He was born in
                     Patna, Bihar and after his mother's demise in 2002 which left the family devastated, they moved
@@ -359,8 +367,8 @@
 
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section2'>
+        <div class="columns">
+            <div class="column" id='section2'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput : Nepotism Kangana</span></div>
                 <p>Sushant Singh Rajput was an aspiring actor who started his career from television serials (2008).
                     Later, he got a chance to act on big screen "Bollywood" with his is very first movie "Kai Po Che"
@@ -405,8 +413,8 @@
                     resulted in a change that was unexpected, however we don't know how far this change will last.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section3'>
+        <div class="columns">
+            <div class="column" id='section3'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput : Death reason</span></div>
                 <p>On 14th of June, a sudden heart- breaking news came that 34 year bollywood actor
                      Sushant Singh Rajput was no more. The news shook each and every person to the core. Everyone wanted
@@ -458,8 +466,8 @@
                     Sushant.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section4'>
+        <div class="columns">
+            <div class="column" id='section4'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput and Ankita Lokhande</span></div>
                 <p>Not all hello's last forever, not all goodbyes are meant to see a new unison in future. Likewise
                     Ankita Lokhande and Sushant Singh Rajput first met on the set of their debut show "pavitra rishta"
@@ -512,8 +520,8 @@
                 </p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section5'>
+        <div class="columns">
+            <div class="column" id='section5'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput : Chhichhore</span></div>
                 <p>Chhichhore is 2019 film directed by Nitesh Tiwari starring Sushant Singh Rajput, Shraddha Kapoor,
                     Varun Sharma.
@@ -531,8 +539,8 @@
                     awards or ZeeCineAwards but also the 'cause' that it brought forth!</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section6'>
+        <div class="columns">
+            <div class="column" id='section6'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput : Educational qualification</span>
                 </div>
                 <p>Sushant's tragic death sparked an outpouring of grief in everybody. 
@@ -558,8 +566,8 @@
                     is not just a lost for his family but to entire nation.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section7'>
+        <div class="columns">
+            <div class="column" id='section7'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput , Ekta Kapoor</span></div>
                 <p>Ekta Kapoor is an Indian Television producer, film producer, and director. She gave Sushant Singh
                     Rajput his Big TV break with a daily soap entitled "Pavitra Rishta". When Sushant moved to Mumbai to
@@ -636,8 +644,8 @@
                     deceased actor.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section8'>
+        <div class="columns">
+            <div class="column" id='section8'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput : Investigation</span></div>
                 <p>It's more than a month now of  Sushant's mysterious death. But with time it is getting even more
                     unexplainable. The actor was found hanging in his Bandra residence stated mumbai police and
@@ -670,8 +678,8 @@
                     Every fan in the country is wishing the same for the late actor. JUSTICE</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section9'>
+        <div class="columns">
+            <div class="column" id='section9'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput, Salman Khan and Ekta Kapoor</span>
                 </div>
                 <p>Sushant was found dead in his Bandra residence. Reported by Mumbai police he was found hanging so
@@ -702,8 +710,8 @@
                     it a suicide or a well planned murder.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section10'>
+        <div class="columns">
+            <div class="column" id='section10'>
                 <div class="head"><span class="headline hl3">Sushant Singh Rajput on Koffee with Karan</span></div>
                 <p>Koffee with karan is a controversial chat show hosted by the bollywood director Karan Johar. This
                     show aims at having fun by talking personal lives of the bollywood stars. We are well aware of the
