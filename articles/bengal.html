@@ -3,102 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>RanchiMall Content Collaboration Output</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/41cc35d596.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .hide {
+            display: none;
+        }
+
         body {
-            font-family: 'Droid Serif', serif;
-            font-size: 14px;
+            font-family: 'lora', serif;
+            font-size: 16px;
             color: #2f2f2f;
+            margin: 0 1.5rem;
             background-color: #f9f7f1;
         }
 
         header {
             font-family: 'Playfair Display', serif;
             font-weight: 900;
-            font-size: 80px;
+            width: 100%;
+            text-align: center;
+            font-size: 4rem;
             text-transform: uppercase;
-            display: inline-block;
-            line-height: 72px;
-            margin-bottom: 20px;
-
+            padding: 1rem 0;
+            letter-spacing: 6;
         }
 
         p {
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin: 1.2rem 0;
+        }
+        p::first-letter{
+            margin-left: 4rem;
         }
 
         .head {
+            display: flex;
+            flex-direction: column;
             text-align: center;
+            justify-content: center;
             position: relative;
-
-
+            margin-bottom: 1rem;
         }
-
-        .headerobjectswrapper {}
 
         .subhead {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-transform: uppercase;
-            border-bottom: 2px solid #2f2f2f;
-            border-top: 2px solid #2f2f2f;
-            padding: 12px 0 12px 0;
-
+            padding: 0.6rem 0;
+        }
+        .subhead::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 10%;
+            height: 0.1rem;
+            background: #2f2f2f;
         }
 
-        .content {
-            font-size: 0;
-            line-height: 0;
-            word-spacing: -.31em;
-            display: inline-block;
-            margin: 30px 2% 0 15%;
-
-
-        }
-
-        .collumns {}
-
-        .collumn {
-            font-size: 14px;
+        .weatherforcastbox {
+            position: relative;
+            width: 12%;
+            left: 10px;
+            border: 3px double #2f2f2f;
+            padding: 10px 15px 10px 15px;
             line-height: 20px;
-            width: 80%;
             display: inline-block;
-            padding: 0 1% 0 1%;
+            margin: 0 50px 20px -360px;
+        }
+
+        .columns {
+            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+        }
+
+        .column {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            display: flex;
+            flex-direction: column;
             vertical-align: top;
-            margin-bottom: 50px;
-            -webkit-transition: all .7s;
-            transition: all .7s;
+            margin-bottom: 4rem;
         }
 
-        .collumn+.collumn {
-            border-left: 1px solid #2f2f2f;
-        }
-
-        .collumn .headline {
+        .column .headline {
             text-align: center;
             line-height: normal;
-            font-family: 'Playfair Display', serif;
+            font-family: 'lora', serif;
             display: block;
             margin: 0 auto;
-
-
         }
 
-        .collumn .headline.hl1 {
+        .column .headline.hl1 {
             font-weight: 700;
             font-size: 30px;
             text-transform: uppercase;
-            padding: 10px 0 30px 0;
+            padding: 0.8rem 0;
 
         }
 
-        .collumn .headline.hl2 {
+        .column .headline.hl2 {
             font-weight: 400;
-            font-style: italic;
             font-size: 24px;
-            box-sizing: border-box;
-            padding: 10px 0 30px 0;
+            
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl2:before {
+        .column .headline.hl2:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -107,7 +128,7 @@
             margin: 0 auto;
         }
 
-        .collumn .headline.hl2:after {
+        .column .headline.hl2:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -117,22 +138,21 @@
 
         }
 
-        .collumn .headline.hl3 {
+        .column .headline.hl3 {
             font-weight: 400;
-            font-style: italic;
             font-size: 36px;
-            box-sizing: border-box;
-            padding: 10px 0 30px 0;
+            padding: 0.8rem 0;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
         }
 
-        .collumn .headline.hl4 {
-            font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 30px 0;
+        .column .headline.hl4 {
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl4:before {
+        .column .headline.hl4:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -141,7 +161,7 @@
             margin: 0 auto;
         }
 
-        .collumn .headline.hl4:after {
+        .column .headline.hl4:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -151,23 +171,20 @@
 
         }
 
-        .collumn .headline.hl5 {
+        .column .headline.hl5 {
             font-weight: 400;
             font-size: 42px;
             text-transform: uppercase;
-            font-style: italic;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl6 {
+        .column .headline.hl6 {
             font-weight: 400;
             font-size: 18px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl6:before {
+        .column .headline.hl6:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -176,46 +193,41 @@
             margin: 0 auto;
         }
 
-        .collumn .headline.hl6:after {
+        .column .headline.hl6:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
             height: 10px;
             display: block;
             margin: 0 auto;
-
         }
 
-        .collumn .headline.hl7 {
+        .column .headline.hl7 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
+            font-size: 0.9rem;
             display: block;
-            padding: 10px 0 10px 0;
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl8 {
+        .column .headline.hl8 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl9 {
+        .column .headline.hl9 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
 
-        .collumn .headline.hl10 {
+        .column .headline.hl10 {
             font-weight: 700;
-            font-size: 12px;
-            box-sizing: border-box;
-            padding: 10px 0 10px 0;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
         }
 
-        .collumn .citation {
+        .column .citation {
             font-family: 'Playfair Display', serif;
             font-size: 36px;
             line-height: 44px;
@@ -225,10 +237,9 @@
             display: block;
             margin: 40px 0 40px 0;
             font-feature-settings: "liga", "dlig";
-
         }
 
-        .collumn .citation:before {
+        .column .citation:before {
             border-top: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -237,7 +248,7 @@
             margin: 0 auto;
         }
 
-        .collumn .citation:after {
+        .column .citation:after {
             border-bottom: 1px solid #2f2f2f;
             content: '';
             width: 100px;
@@ -246,13 +257,13 @@
             margin: 0 auto;
         }
 
-        .collumn .figure {
+        .column .figure {
             margin: 0 0 20px;
         }
 
-        .collumn .figcaption {
+        .column .figcaption {
             font-style: italic;
-            font-size: 12px;
+            font-size: 0.9rem;
         }
 
         .media {
@@ -264,57 +275,46 @@
 
         /*________________________________________________________________________________________________________________________________*/
         /*MEDIAQUERIES*/
-        @media only all and (max-width: 1300px) {
+        @media all and (max-width: 1280px) {
             .weatherforcastbox {
                 display: none;
             }
-
         }
 
-        @media only all and (max-width: 1200px) {
-            .collumn {
-                width: 80%;
-            }
-
-        }
-
-        @media only all and (max-width: 900px) {
-            .collumn {
-                width: 80%;
-            }
-
-        }
-
-        @media only all and (max-width: 600px) {
-            .collumn {
-                width: 100%;
-            }
-
-            .collumn+.collumn {
-                border-left: none;
-                border-bottom: 1px solid #2f2f2f;
-            }
-
+        @media all and (max-width: 640px) {
             header {
-                max-width: 320px;
-                font-size: 36px;
-                line-height: 54px;
-                overflow: hidden;
+                font-size: 2.5rem;
             }
+        }
 
-            .content {
-                margin: 30px 6% 0 5%;
+        @media all and (min-width: 640px){
+            body{
+                margin: 0 12vw;
             }
-
+            .columns{
+                margin: 0 2vw;
+            }
+        }
+        @media all and (min-width: 1280px){
+            body{
+                margin: 0 20vw;
+            }
+            .columns{
+                margin: 0 2vw;
+            }
+        }
+        @media all and (min-width: 1920px){
+            body{
+                margin: 0 32vw;
+            }
+            .columns{
+                margin: 0 4vw;
+            }
         }
     </style>
 </head>
 
 <body translate="no">
-    <link
-        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic"
-        rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width">
     <div class="head">
         <div class="headerobjectswrapper">
             <header id='title'>Political History of Bengal</header>
@@ -322,8 +322,8 @@
         <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
     </div>
     <div class="content" id='sectionmaster'>
-        <div class="collumns">
-            <div class="collumn" id='section1'>
+        <div class="columns">
+            <div class="column" id='section1'>
                 <div class="head"><span class="headline hl3">From Murshid to Mamata: A Political History of
                         Bengal</span></div>
                 <p>Murshid Quli Khan was the first Nawab of Bengal. 
@@ -489,8 +489,8 @@
                 </p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section2'>
+        <div class="columns">
+            <div class="column" id='section2'>
                 <div class="head"><span class="headline hl3">Hooghly, Calcutta, 2020, Painting Hooghly with words-Build
                         background and bridge to Writers Building</span></div>
                 <p>For the traveler with limited time, the best way to explore Calcutta is roughly to trace the route of
@@ -516,8 +516,8 @@
                     The building, as of today, has been under renovation since October 2013.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section3'>
+        <div class="columns">
+            <div class="column" id='section3'>
                 <div class="head"><span class="headline hl3">Writers Building, 2020, Calcutta, Painting Writers</span>
                 </div>
                 <p>The Writers Building is currently under renovation since 2013. 
@@ -525,8 +525,8 @@
                     will become the next occupant of the chair in Writers Building</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section4'>
+        <div class="columns">
+            <div class="column" id='section4'>
                 <div class="head"><span class="headline hl3">Chief Minster Cabin, Calcutta, 2021, Painting the process
                         who will sit here-painting Chief Minister Cabin-Bridge to current occupant</span></div>
                 <p>Next year in sometime between March and June of 2021, about 67 million registered voters will chose
@@ -536,8 +536,8 @@
                     by a frail but fiestly lady who has never married Mamata Baneerjee.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section5'>
+        <div class="columns">
+            <div class="column" id='section5'>
                 <div class="head"><span class="headline hl3">Mamata Banerji, Calcutta, 2020, Profile about current
                         occupant-one interesting fact from her life to trigger - like being unmarried</span></div>
                 <p>As a young firebrand 29 year old, she caught attention of political pundits by defeating a stalwart
@@ -553,8 +553,8 @@
                     killings.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section6'>
+        <div class="columns">
+            <div class="column" id='section6'>
                 <div class="head"><span class="headline hl3">Hooghly-Origin of Calcutta, Calcutta, 1690, go back to
                         start how Calcutta was created in British times</span></div>
                 <p>Establishment of Calcutta, now called as Kolkata in modern independent India, was a long and messy
@@ -577,8 +577,8 @@
                     Hooghly, Bengal.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section7'>
+        <div class="columns">
+            <div class="column" id='section7'>
                 <div class="head"><span class="headline hl3">Aurangzeb, Dhaka, 1690, Explain State of Mughal affairs -
                         and how Bengal became independent country</span></div>
                 <p>Emperor Aurangzeb was the one sitting on throne during the major period of tension and conflict
@@ -616,8 +616,8 @@
                     drive out the British from the area and capture all their factories and assets.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section8'>
+        <div class="columns">
+            <div class="column" id='section8'>
                 <div class="head"><span class="headline hl3">Murshid Quli Khan, Murshidabad, 1707-1717, Go upriver to
                         Murshidabad-Explain how the richest country in the world is born</span></div>
                 <p>The historical city of Murshidabad-the earstwhile nawabi capital –a city founded in the year 1704 by
@@ -645,16 +645,16 @@
                     by the nawab.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section9'>
+        <div class="columns">
+            <div class="column" id='section9'>
                 <div class="head"><span class="headline hl3">Alivardi Khan, Murshidabad, 1717-1756, continuation of
                         Murshid Story-Alivardi was last strong man Britishers feared in Bengal</span></div>
                 <p>Alivardi Khan was the last strongman in Bengal whom the foreign powers feared. After his death, in
                     1956, the dorrs to the paramount power in Bengal subah reopened.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section10'>
+        <div class="columns">
+            <div class="column" id='section10'>
                 <div class="head"><span class="headline hl3">Battle Theme- Sheikh Mujibur Rehman-Bangladesh, Bangladesh,
                         1971-1975, Creation of Bangladesh and Pakistan role in Bengal till Sheikh Mujibur Rehman was
                         assassinated-Bridge to his daugher Sheikh Haseena</span></div>
@@ -807,8 +807,8 @@
                     province during Britsh times.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section11'>
+        <div class="columns">
+            <div class="column" id='section11'>
                 <div class="head"><span class="headline hl3">Sheikh Haseena, Dhaka-Bangladesh, 2020, Regeneration to be
                         the fast growing region in the world-Bridge to Mamata</span></div>
                 <p>Sheikh Hasina was sworn in as prime minister of Bangladeh in January 2009. In 2017, in the midst of
@@ -840,8 +840,8 @@
                     to last long.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section12'>
+        <div class="columns">
+            <div class="column" id='section12'>
                 <div class="head"><span class="headline hl3">Mamata Banerji, Calcutta, 2020, Another aspect of her life-
                         a short event - Bridge to her political predecessor system Communism and Jyoti Basu</span></div>
                 <p>The dynamics of democratic politics in West Bengal, a major state of eastern India had taken its own
@@ -866,8 +866,8 @@
                     development, is likely to suffer adverse consequences in the longer term.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section13'>
+        <div class="columns">
+            <div class="column" id='section13'>
                 <div class="head"><span class="headline hl3">Jyoti Basu-Communism, West Bengal, 1977-2000, Impact of
                         Communism in Bengal-Bridge to Cornwallis Permanent Settlement</span></div>
                 <p>The ripple effects of Russian revolution in 1917 reached British India that was fighting against a
@@ -912,8 +912,8 @@
                     land reforms programs in India.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section14'>
+        <div class="columns">
+            <div class="column" id='section14'>
                 <div class="head"><span class="headline hl3">Cornwallis, Bengal, 1790-1800, Permanent Settlement System
                         and how it impacted West Bengal</span></div>
                 <p>From time Immemorial the State in India has claimed a certain proportion of the produce of every
@@ -1014,8 +1014,8 @@
                     source was generally fixed at one-sixth of the produce.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section15'>
+        <div class="columns">
+            <div class="column" id='section15'>
                 <div class="head"><span class="headline hl3">William Bentick, Bengal, 1828-1835, Bentick social
                         reforms</span></div>
                 <p>Lord William Bentinck was born in London, the second son of the 3rd Duke of Portland. He was educated
@@ -1069,8 +1069,8 @@
                     or ritual murder by robber gangs</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section16'>
+        <div class="columns">
+            <div class="column" id='section16'>
                 <div class="head"><span class="headline hl3">Lord Dalhousie, Bengal, 1857, events leading to first war
                         of independence</span></div>
                 <p>Lord Canning 1858 to 1862
@@ -1098,8 +1098,8 @@
                     a system of administration which proved successful in maintaining order.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section17'>
+        <div class="columns">
+            <div class="column" id='section17'>
                 <div class="head"><span class="headline hl3">Lord Curzon, Bengal, 1905, partition of Bengal</span></div>
                 <p>Partition of Bengal, (1905), division of Bengal carried out by the British viceroy in India, Lord
                     Curzon, despite strong Indian nationalist opposition. It began a transformation of the Indian
@@ -1157,8 +1157,8 @@
                     accompanied by intense violence.</p>
             </div>
         </div>
-        <div class="collumns">
-            <div class="collumn" id='section18'>
+        <div class="columns">
+            <div class="column" id='section18'>
                 <div class="head"><span class="headline hl3">Writers Building-Bidhan Chandra Roy, Calcutta, 1950,
                         explain his contribution in governing West Bengal</span></div>
                 <p>B.C. Roy was a great planner for the improvement of education and culture of West Bengal. Due to the
