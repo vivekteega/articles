@@ -1,0 +1,452 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RanchiMall Content Collaboration Output</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/41cc35d596.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    
+        .hide {
+            display: none;
+        }
+    
+        body {
+            font-family: 'lora', serif;
+            font-size: 16px;
+            color: #2f2f2f;
+            margin: 0 1.5rem;
+            background-color: #f9f7f1;
+        }
+    
+        header {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            width: 100%;
+            text-align: center;
+            font-size: 4rem;
+            text-transform: uppercase;
+            padding: 1rem 0;
+            letter-spacing: 6;
+        }
+    
+        p {
+            margin: 1.2rem 0;
+        }
+    
+        p::first-letter {
+            margin-left: 4rem;
+        }
+    
+        .head {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+    
+        .subhead {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+            padding: 0.6rem 0;
+        }
+    
+        .subhead::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 10%;
+            height: 0.1rem;
+            background: #2f2f2f;
+        }
+    
+        .weatherforcastbox {
+            position: relative;
+            width: 12%;
+            left: 10px;
+            border: 3px double #2f2f2f;
+            padding: 10px 15px 10px 15px;
+            line-height: 20px;
+            display: inline-block;
+            margin: 0 50px 20px -360px;
+        }
+    
+        .columns {
+            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+        }
+    
+        .column {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            display: flex;
+            flex-direction: column;
+            vertical-align: top;
+            margin-bottom: 4rem;
+        }
+    
+        .column .headline {
+            text-align: center;
+            line-height: normal;
+            font-family: 'lora', serif;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .headline.hl1 {
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: uppercase;
+            padding: 0.8rem 0;
+    
+        }
+    
+        .column .headline.hl2 {
+            font-weight: 400;
+            font-size: 24px;
+    
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl2:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .headline.hl2:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 13px;
+            display: block;
+            margin: 0 auto;
+    
+        }
+    
+        .column .headline.hl3 {
+            font-weight: 400;
+            font-size: 36px;
+            padding: 0.8rem 0;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .column .headline.hl4 {
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl4:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .headline.hl4:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: block;
+            margin: 0 auto;
+    
+        }
+    
+        .column .headline.hl5 {
+            font-weight: 400;
+            font-size: 42px;
+            text-transform: uppercase;
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl6 {
+            font-weight: 400;
+            font-size: 18px;
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl6:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .headline.hl6:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .headline.hl7 {
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl8 {
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl9 {
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+        }
+    
+        .column .headline.hl10 {
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+        }
+    
+        .column .citation {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            line-height: 44px;
+            /*font-style: italic;*/
+            text-align: center;
+            font-weight: 400;
+            display: block;
+            margin: 40px 0 40px 0;
+            font-feature-settings: "liga", "dlig";
+        }
+    
+        .column .citation:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .citation:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .column .figure {
+            margin: 0 0 20px;
+        }
+    
+        .column .figcaption {
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+    
+        .media {
+            -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
+            filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
+            mix-blend-mode: multiply;
+            width: 100%;
+        }
+    
+        /*________________________________________________________________________________________________________________________________*/
+        /*MEDIAQUERIES*/
+        @media all and (max-width: 1280px) {
+            .weatherforcastbox {
+                display: none;
+            }
+        }
+    
+        @media all and (max-width: 640px) {
+            header {
+                font-size: 2.5rem;
+            }
+        }
+    
+        @media all and (min-width: 640px) {
+            body {
+                margin: 0 12vw;
+            }
+    
+            .columns {
+                margin: 0 2vw;
+            }
+        }
+    
+        @media all and (min-width: 1280px) {
+            body {
+                margin: 0 20vw;
+            }
+    
+            .columns {
+                margin: 0 2vw;
+            }
+        }
+    
+        @media all and (min-width: 1920px) {
+            body {
+                margin: 0 32vw;
+            }
+    
+            .columns {
+                margin: 0 4vw;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="head">
+        <div class="headerobjectswrapper">
+
+            <header id='title'>India China Relationship</header>
+        </div>
+        <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
+    </div>
+    <div class="content" id='sectionmaster'>
+        <div class="columns">
+            <div class="column" id='section1'>
+                <div class="head"><span class="headline hl3">India China Diplomatic Relations</span></div>
+                <p>Diplomatic relations between
+                    India and China.
+                    India is the first non-socialist country to
+                    establish diplomatic relations with China,
+                    the communist government. The joint
+                    enunciation of Panchsheel - the 5
+                    principles of peaceful co- existence by the
+                    Indian Prime Minister Nehru and Chinese
+                    Premier Zhou Enlai was a step towards a
+                    stronger relationship. Annexation of Tibet by Chinese caused
+                    huge conflicts between the two countries
+                    and the tension was also heated due to
+                    border disputes caused by China. It took
+                    more than a decade to normalize the
+                    situation. Trade was the only positive
+                    relation between both the countries. They had signed agreements on cultural
+                    exchanges and co-operation in science. Bilateral trade between India and China
+                    has increased from $338 million in 1992 to
+                    more than $84 billion in 2017,
+                    But we need to relook how the relation
+                    would continue after the post- covid
+                    world. The solidarity between the two
+                    countries may be degraded due to lack of
+                    transparency and trust issues of China. The public perception of Indians has
+                    become very negative and the whole
+                    world has socially distanced themselves
+                    from China. India has been doing the
+                    same. The first step is by banning 59
+                    Chinese apps. The outbreak of this
+                    pandemic will sure change our relations
+                    with China since it the one to be blamed
+                    for.</p>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column" id='section2'>
+                <div class="head"><span class="headline hl3">India China Trade</span></div>
+                <p>Indo-China Trade.
+                    China being the largest exporter to India surely has its upper hand there and it would be a great 
+                    troublesome situation for both the countries to have disputes amid this world wide pandemic due to 
+                    the CORONA VIRUS.
+                    It won’t be wrong to say that Indian MSME sector is very much dependent on various Chinese 
+                    imports and that too when it has been in the middle of crisis since a couple of years.
+                    Although for the business experts and other analysts it is going to be an interesting show that how 
+                    both the countries and going to revive their respective manufacturing sector and the economy as a 
+                    whole if thing go wrong.
+                    Figuratively speaking, In 2019-20 China accounted over 5% of India’s total exports which includes a 
+                    wide range of products including iron ore, cotton yarn, coconuts, copper. Whereas Imports from 
+                    china accounted for more than 14 percent, mobile phones and its accessories holding the top spot 
+                    over 48% of the total import.
+                    For more visit http://www.indiatradedata.com/what-india-import-export-china
+                    The above figures shows that India runs a huge trade deficit with china which puts India on the
+                    back 
+                    foot to take major decisions, although Indian government has already taken some strong decisions 
+                    to match up the sentiments of Indian citizens to boycott Chinese products. 
+                    India already has its plans to counter Chinese huge imports, The MAKE IN INDIA programme which 
+                    was launched in 2014 but Indian economy has not seen or gained much out of it.</p>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column" id='section3'>
+                <div class="head"><span class="headline hl3">India China DTAA</span></div>
+                <p>INDIA-CHINA DTAA
+
+
+                    Double Taxation Avoidance Agreement(DTAA)is an accord for the avoidance of double taxation to a
+                    citizenary of either or the both nation entalgled to the concord.
+
+
+                    India-China bilateral significance to DTAA kicked off to a flier in july 1984.The recent development
+                    in harmony with the concurrence was observed in Nov.2018.
+
+
+                    The amendment in the prevailing protocols has now bound both the nation to sticl to the recent
+                    international standards.
+
+
+                    The DTAA is just not about Tax- Credit or Tax- Exemption but it also indirectly helps both the
+                    nation to understand each other economic and  monetary policies and aid to prosper growth. However,
+                    In  critical circumstances,the accord may be terminated from either party by notifying other.</p>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column" id='section4'>
+                <div class="head"><span class="headline hl3">India China Doklam Border Standoff</span></div>
+                <p>INDIA CHINA DOKLAM BORDER ISSUE- 
+                    Docklam, or Donglang in Chinese, is an area spread over less than 100sq km comprising a platform and
+                    a valley at the Tri-junction between India, Bhutan and China. It is surrounded by Chumbi
+                    Valley of Tibet, Bhutan Ha Valley and Sikkim. In 2017, a dispute arose between Indian Armed Force
+                    and the
+                    People’s Liberation Army of China. In June, 2017, the Chinese troops started constructing road on
+                    the disputed area of Doklam which the Chinese claims it to be a a part of its Donglang region.
+                    However, India and Bhutan recognize it as Doklam, a Bhutan territory. Bhutan has a very strategic
+                    position considering the geography of India. To foster the relationship, India and Bhutan had signed
+                    a “Friendship Treaty” in 2007 which made India to intervene for the goodwill of Bhutan among other
+                    provisions. Also, Bhutan had asked for India’s help to protect its interest in Doklam from Chinese
+                    intervention. The question that arose was why Doklam region was so important to these nations. The
+                    reason being was that the area of Doklam carries huge military advantages and if it falls into the
+                    hands of China, the security of India and Bhutan will be at stake. The access to Tri-junction area
+                    shall be easy for the transportation of war machinery to the border of India. In this case, if there
+                    is a war between India and China, China will be able to conquer the Chicken’s neck of India which
+                    connects the North-Eastern states to rest of India. So, Indian Army was sent in order to stop the
+                    Chinese troops from constructing roads on the disputed area of Doklam. The military standoff
+                    continued for more than two months. China
+                    accused India for entering their border. Well after diplomatic conversations, both the troops were
+                    withdrawn from the border. Talking about the consequences of this standoff, I do not think it was an
+                    impactful one. The Chinese government claimed that it is
+                    their sovereign right so the Chinese troops will be present at the border. They were ready to
+                    maintain peace further. Till now, there have been no instances regarding any disturbances on that
+                    border.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

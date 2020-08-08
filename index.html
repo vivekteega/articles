@@ -321,6 +321,7 @@
         for (let i = 0; i < repocontent.length; i++) {
             if (repocontent[i]['name'] == 'articles') {
                 var articlefolder = await (await fetch(repocontent[i]['url'])).json()
+                debugger
             }
         }
 
