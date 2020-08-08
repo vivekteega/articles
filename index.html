@@ -40,7 +40,7 @@
         p {
             margin: 1.2rem 0;
         }
-        p::first-letter{
+        p:not(:first-of-type)::first-letter{
             margin-left: 4rem;
         }
 
@@ -388,16 +388,16 @@
                           </div>` 
             //debugger;
             //columns.append(columnhtml)      
-            columns.innerHTML = columns.innerHTML + columnhtml   
+            columns.innerHTML += columnhtml   
             //debugger
             
         }
     }
 
     function switchtoArticle(element){
-        document.getElementById("homepage").style.display = "none"
+        document.getElementById("homepage").classList.add('hide')
         document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
-        document.getElementById("displaypagemain").style.display = "initial"
+        document.getElementById("display_page_main").classList.remove('hide')
     }
 
 </script>
@@ -530,15 +530,15 @@
         </div>
     </div>
 
-    <div id="displaypagemain" style="display: none;">
-        <div id="goback" style="color:#DC143C">
+    <div id="display_page_main" class="hide">
+        <div id="go_back" style="color:#DC143C">
             <i class="fa fa-angle-double-left" aria-hidden="true" style="color:#DC143C"></i>
             Go Back
         </div>
         <div id="displaypage">
 
         </div>
-        <div id="gobackbottom" style="color:#DC143C">
+        <div id="go_back_bottom" style="color:#DC143C">
             <i class="fa fa-angle-double-left" aria-hidden="true" style="color:#DC143C"></i>
             Go Back
         </div>
@@ -546,22 +546,23 @@
 </body>
 
 <script>
-    document.getElementById("goback").addEventListener("click", function () {
+    let homepage = document.getElementById("homepage");
+    document.getElementById("go_back").addEventListener("click", function () {
         console.log("Registered a click")
-        if (document.getElementById("homepage").style.display == "none") {
-            document.getElementById("homepage").style.display = "initial"
-            document.getElementById("displaypagemain").style.display = "none"
+        if (homepage.classList.contains('hide')) {
+            homepage.classList.remove('hide')
+            document.getElementById("display_page_main").classList.add('hide')
         }
         else {
             
         }
     });
 
-    document.getElementById("gobackbottom").addEventListener("click", function () {
+    document.getElementById("go_back_bottom").addEventListener("click", function () {
         console.log("Registered a click")
-        if (document.getElementById("homepage").style.display == "none") {
-            document.getElementById("homepage").style.display = "initial"
-            document.getElementById("displaypagemain").style.display = "none"
+        if (homepage.classList.contains('hide')) {
+            homepage.classList.remove('hide')
+            document.getElementById("display_page_main").classList.add('hide')
         }
         else {
             
