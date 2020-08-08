@@ -319,16 +319,13 @@
         repocontent = await (await fetch(repourl)).json();
 
         for (let i = 0; i < repocontent.length; i++) {
-            if (repocontent[i]['name'] == 'articles') {
-                var articlefolder = await (await fetch(repocontent[i]['url'])).json()
-                debugger
+            articlehtml = await (await fetch(repocontent[i]["download_url"])).text()
+            if(repocontent[i]['name'].slice(-5, repocontent[i]['name'].length)=='.html' && repocontent[i]['name'].slice(0, -5)!='index'){
+                articles[repocontent[i]['name'].slice(0, repocontent[i]['name'].length - 5)] = articlehtml
             }
         }
 
-        for (let i = 0; i < articlefolder.length; i++) {
-            articlehtml = await (await fetch(articlefolder[i]["download_url"])).text()
-            articles[articlefolder[i]['name'].slice(0, articlefolder[i]['name'].length - 5)] = articlehtml
-        }
+        debugger
 
         parseArticles(articles)
         renderColumns(parsedarticles)
