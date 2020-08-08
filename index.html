@@ -46,6 +46,10 @@
             margin-left: 4rem;
         }
 
+        #homepage{
+            display: grid;
+        }
+
         .head {
             display: flex;
             flex-direction: column;
@@ -70,17 +74,6 @@
             width: 10%;
             height: 0.1rem;
             background: #2f2f2f;
-        }
-
-        .weatherforcastbox {
-            position: relative;
-            width: 12%;
-            left: 10px;
-            border: 3px double #2f2f2f;
-            padding: 10px 15px 10px 15px;
-            line-height: 20px;
-            display: inline-block;
-            margin: 0 50px 20px -360px;
         }
 
         .columns {
@@ -284,11 +277,6 @@
 
         /*________________________________________________________________________________________________________________________________*/
         /*MEDIAQUERIES*/
-        @media all and (max-width: 1280px) {
-            .weatherforcastbox {
-                display: none;
-            }
-        }
 
         @media all and (max-width: 640px) {
             header {
@@ -308,14 +296,6 @@
             }
         }
     </style>
-    <script>
-        window.console = window.console || function (t) {};
-    </script>
-    <script>
-        if (document.location.search.match(/type=embed/gi)) {
-            window.parent.postMessage("resize", "*");
-        }
-    </script>
 </head>
 
 <script>
@@ -378,11 +358,9 @@
 
         numberOfColumns = Object.keys(parsedarticles).length
         let columns = document.getElementById('columnsmain')
-        //debugger 
         let parsedArticlesKeys = Object.keys(parsedarticles)
 
         for (let i = 0; i < parsedArticlesKeys.length; i++) {
-            debugger
             columnhtml = `<div class="column" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}">
                             <div class="head">
                                 <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
@@ -392,10 +370,8 @@
                             <a href='./${parsedArticlesKeys[i]}.html'>Read article <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                             
                           </div>`
-            //debugger;
             //columns.append(columnhtml)      
             columns.innerHTML += columnhtml
-            //debugger
 
         }
     }
