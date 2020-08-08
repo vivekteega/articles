@@ -10,11 +10,12 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
+
         .hide {
             display: none;
         }
@@ -23,14 +24,12 @@
             font-family: 'lora', serif;
             font-size: 16px;
             color: #2f2f2f;
-            margin: 0 1.5rem;
             background-color: #f9f7f1;
         }
 
         header {
             font-family: 'Playfair Display', serif;
             font-weight: 900;
-            width: 100%;
             text-align: center;
             font-size: 4rem;
             text-transform: uppercase;
@@ -41,8 +40,17 @@
         p {
             margin: 1.2rem 0;
         }
-        p::first-letter{
+
+        p:not(:first-of-type)::first-letter {
             margin-left: 4rem;
+        }
+
+        #homepage{
+            display: grid;
+        }
+        .content{
+            display: grid;
+            max-width: calc(100% - 3rem);
         }
 
         .head {
@@ -52,6 +60,7 @@
             justify-content: center;
             position: relative;
             margin-bottom: 1rem;
+            
         }
 
         .subhead {
@@ -61,7 +70,8 @@
             text-transform: uppercase;
             padding: 0.6rem 0;
         }
-        .subhead::after{
+
+        .subhead::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -70,38 +80,27 @@
             background: #2f2f2f;
         }
 
-        .weatherforcastbox {
-            position: relative;
-            width: 12%;
-            left: 10px;
-            border: 3px double #2f2f2f;
-            padding: 10px 15px 10px 15px;
-            line-height: 20px;
-            display: inline-block;
-            margin: 0 50px 20px -360px;
-        }
-
         .columns {
             padding-top: 2rem;
             display: grid;
+            width: calc(100% - 3rem);
             grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
         }
 
         .column {
             font-size: 1.2rem;
-            line-height: 1.9;
+            line-height: 1.8;
             display: flex;
             flex-direction: column;
-            vertical-align: top;
-            margin-bottom: 4rem;
+            padding: 0 1.5rem;
+            width: calc(100% - 3rem);
         }
 
         .column .headline {
             text-align: center;
             line-height: normal;
             font-family: 'lora', serif;
-            display: block;
-            margin: 0 auto;
+            display: flex;
         }
 
         .column .headline.hl1 {
@@ -115,7 +114,6 @@
         .column .headline.hl2 {
             font-weight: 400;
             font-size: 24px;
-            
             padding: 0.8rem 0;
         }
 
@@ -124,7 +122,7 @@
             content: '';
             width: 100px;
             height: 7px;
-            display: block;
+            display: flex;
             margin: 0 auto;
         }
 
@@ -133,7 +131,7 @@
             content: '';
             width: 100px;
             height: 13px;
-            display: block;
+            display: flex;
             margin: 0 auto;
 
         }
@@ -157,7 +155,7 @@
             content: '';
             width: 100px;
             height: 7px;
-            display: block;
+            display: flex;
             margin: 0 auto;
         }
 
@@ -166,120 +164,13 @@
             content: '';
             width: 100px;
             height: 10px;
-            display: block;
+            display: flex;
             margin: 0 auto;
 
-        }
-
-        .column .headline.hl5 {
-            font-weight: 400;
-            font-size: 42px;
-            text-transform: uppercase;
-            padding: 0.8rem 0;
-        }
-
-        .column .headline.hl6 {
-            font-weight: 400;
-            font-size: 18px;
-            padding: 0.8rem 0;
-        }
-
-        .column .headline.hl6:before {
-            border-top: 1px solid #2f2f2f;
-            content: '';
-            width: 100px;
-            height: 7px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .column .headline.hl6:after {
-            border-bottom: 1px solid #2f2f2f;
-            content: '';
-            width: 100px;
-            height: 10px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .column .headline.hl7 {
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: block;
-            padding: 0.8rem 0;
-        }
-
-        .column .headline.hl8 {
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.8rem 0;
-        }
-
-        .column .headline.hl9 {
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.8rem 0;
-        }
-
-        .column .headline.hl10 {
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.8rem 0;
-        }
-
-        .column .citation {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            line-height: 44px;
-            /*font-style: italic;*/
-            text-align: center;
-            font-weight: 400;
-            display: block;
-            margin: 40px 0 40px 0;
-            font-feature-settings: "liga", "dlig";
-        }
-
-        .column .citation:before {
-            border-top: 1px solid #2f2f2f;
-            content: '';
-            width: 100px;
-            height: 16px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .column .citation:after {
-            border-bottom: 1px solid #2f2f2f;
-            content: '';
-            width: 100px;
-            height: 16px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .column .figure {
-            margin: 0 0 20px;
-        }
-
-        .column .figcaption {
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        .media {
-            -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
-            filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
-            mix-blend-mode: multiply;
-            width: 100%;
         }
 
         /*________________________________________________________________________________________________________________________________*/
         /*MEDIAQUERIES*/
-        @media all and (max-width: 1280px) {
-            .weatherforcastbox {
-                display: none;
-            }
-        }
 
         @media all and (max-width: 640px) {
             header {
@@ -316,7 +207,7 @@
 
 <body translate="no">
     <div class="head">
-        <div class="headerobjectswrapper">
+        <div>
             <header id='title'>Political History of Bengal</header>
         </div>
         <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
@@ -324,8 +215,8 @@
     <div class="content" id='sectionmaster'>
         <div class="columns">
             <div class="column" id='section1'>
-                <div class="head"><span class="headline hl3">From Murshid to Mamata: A Political History of
-                        Bengal</span></div>
+                <div class="head"><div class="headline hl3">From Murshid to Mamata: A Political History of
+                        Bengal</div></div>
                 <p>Murshid Quli Khan was the first Nawab of Bengal. 
                     He was originally born a Hindu as Surya Narayan Mishra.
                     The city of Murshidabad was named after him.
@@ -491,8 +382,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section2'>
-                <div class="head"><span class="headline hl3">Hooghly, Calcutta, 2020, Painting Hooghly with words-Build
-                        background and bridge to Writers Building</span></div>
+                <div class="head"><div class="headline hl3">Hooghly, Calcutta, 2020, Painting Hooghly with words-Build
+                        background and bridge to Writers Building</div></div>
                 <p>For the traveler with limited time, the best way to explore Calcutta is roughly to trace the route of
                     the Hooghly, meandering on and off the main thoroughfares by foot, tram and subway, known here as
                     the Metro. This is not a luxury destination. It is more a journey through the grimy layers of time.
@@ -518,7 +409,7 @@
         </div>
         <div class="columns">
             <div class="column" id='section3'>
-                <div class="head"><span class="headline hl3">Writers Building, 2020, Calcutta, Painting Writers</span>
+                <div class="head"><div class="headline hl3">Writers Building, 2020, Calcutta, Painting Writers</div>
                 </div>
                 <p>The Writers Building is currently under renovation since 2013. 
                     Next year sometime between April and June in 2021, about 294 constituencies will vote to decide who
@@ -527,8 +418,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section4'>
-                <div class="head"><span class="headline hl3">Chief Minster Cabin, Calcutta, 2021, Painting the process
-                        who will sit here-painting Chief Minister Cabin-Bridge to current occupant</span></div>
+                <div class="head"><div class="headline hl3">Chief Minster Cabin, Calcutta, 2021, Painting the process
+                        who will sit here-painting Chief Minister Cabin-Bridge to current occupant</div></div>
                 <p>Next year in sometime between March and June of 2021, about 67 million registered voters will chose
                     294 representations to the state assembly. Writers Building has been under renovation since 2013. If
                     the renovation is finished by then, then 294 members of state legislative assembly will decide the
@@ -538,8 +429,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section5'>
-                <div class="head"><span class="headline hl3">Mamata Banerji, Calcutta, 2020, Profile about current
-                        occupant-one interesting fact from her life to trigger - like being unmarried</span></div>
+                <div class="head"><div class="headline hl3">Mamata Banerji, Calcutta, 2020, Profile about current
+                        occupant-one interesting fact from her life to trigger - like being unmarried</div></div>
                 <p>As a young firebrand 29 year old, she caught attention of political pundits by defeating a stalwart
                     of the communist party, Mr Somnath Chatterji in the central parliamentary elections in 1984 in the
                     aftermath of sympathy wave generated due to assassination of Indira Gandhi representing Congress
@@ -555,8 +446,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section6'>
-                <div class="head"><span class="headline hl3">Hooghly-Origin of Calcutta, Calcutta, 1690, go back to
-                        start how Calcutta was created in British times</span></div>
+                <div class="head"><div class="headline hl3">Hooghly-Origin of Calcutta, Calcutta, 1690, go back to
+                        start how Calcutta was created in British times</div></div>
                 <p>Establishment of Calcutta, now called as Kolkata in modern independent India, was a long and messy
                     ordeal for the British East India Company. Calcutta, as we know it, didn’t exist as a city back
                     then. Infact, what we know as Calcutta today was actually formed by 
@@ -579,8 +470,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section7'>
-                <div class="head"><span class="headline hl3">Aurangzeb, Dhaka, 1690, Explain State of Mughal affairs -
-                        and how Bengal became independent country</span></div>
+                <div class="head"><div class="headline hl3">Aurangzeb, Dhaka, 1690, Explain State of Mughal affairs -
+                        and how Bengal became independent country</div></div>
                 <p>Emperor Aurangzeb was the one sitting on throne during the major period of tension and conflict
                     between the Mughals and the British East India Company. The EIC wanted to establish a trade base on
                     the eastern shore of India because of its strategic trading and military advantages. 
@@ -618,8 +509,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section8'>
-                <div class="head"><span class="headline hl3">Murshid Quli Khan, Murshidabad, 1707-1717, Go upriver to
-                        Murshidabad-Explain how the richest country in the world is born</span></div>
+                <div class="head"><div class="headline hl3">Murshid Quli Khan, Murshidabad, 1707-1717, Go upriver to
+                        Murshidabad-Explain how the richest country in the world is born</div></div>
                 <p>The historical city of Murshidabad-the earstwhile nawabi capital –a city founded in the year 1704 by
                     Murshid Quli Khan, the Mughal diwan of Bengal. In 1704 Murshid Quli Khan had transferred the capital
                     of Bengal from Dhaka to Murshidabad which he  named the city after his name .The town is situated on
@@ -647,17 +538,17 @@
         </div>
         <div class="columns">
             <div class="column" id='section9'>
-                <div class="head"><span class="headline hl3">Alivardi Khan, Murshidabad, 1717-1756, continuation of
-                        Murshid Story-Alivardi was last strong man Britishers feared in Bengal</span></div>
+                <div class="head"><div class="headline hl3">Alivardi Khan, Murshidabad, 1717-1756, continuation of
+                        Murshid Story-Alivardi was last strong man Britishers feared in Bengal</div></div>
                 <p>Alivardi Khan was the last strongman in Bengal whom the foreign powers feared. After his death, in
                     1956, the dorrs to the paramount power in Bengal subah reopened.</p>
             </div>
         </div>
         <div class="columns">
             <div class="column" id='section10'>
-                <div class="head"><span class="headline hl3">Battle Theme- Sheikh Mujibur Rehman-Bangladesh, Bangladesh,
+                <div class="head"><div class="headline hl3">Battle Theme- Sheikh Mujibur Rehman-Bangladesh, Bangladesh,
                         1971-1975, Creation of Bangladesh and Pakistan role in Bengal till Sheikh Mujibur Rehman was
-                        assassinated-Bridge to his daugher Sheikh Haseena</span></div>
+                        assassinated-Bridge to his daugher Sheikh Haseena</div></div>
                 <p>While Britishers first entered into India from the west the true expansion and seeds of colonialism
                     were sown in the east, particularly from Bengal. It was the year 1775 when a young British governor
                     named Robert Clive must return to India as the governor of Fort St. David with a mission to uproot
@@ -809,8 +700,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section11'>
-                <div class="head"><span class="headline hl3">Sheikh Haseena, Dhaka-Bangladesh, 2020, Regeneration to be
-                        the fast growing region in the world-Bridge to Mamata</span></div>
+                <div class="head"><div class="headline hl3">Sheikh Haseena, Dhaka-Bangladesh, 2020, Regeneration to be
+                        the fast growing region in the world-Bridge to Mamata</div></div>
                 <p>Sheikh Hasina was sworn in as prime minister of Bangladeh in January 2009. In 2017, in the midst of
                     Hasina's premiership, more than 700,000 Rohingya  arrived in Bangladesh, fleeing genocide  in
                     neighbouring Myanmar . 
@@ -842,8 +733,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section12'>
-                <div class="head"><span class="headline hl3">Mamata Banerji, Calcutta, 2020, Another aspect of her life-
-                        a short event - Bridge to her political predecessor system Communism and Jyoti Basu</span></div>
+                <div class="head"><div class="headline hl3">Mamata Banerji, Calcutta, 2020, Another aspect of her life-
+                        a short event - Bridge to her political predecessor system Communism and Jyoti Basu</div></div>
                 <p>The dynamics of democratic politics in West Bengal, a major state of eastern India had taken its own
                     shape despite some aberrations due to the politics of violence in the sixties. Whenever there has
                     been any communication gap between the ruling party and the people, as it occurred during 1964-66
@@ -868,8 +759,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section13'>
-                <div class="head"><span class="headline hl3">Jyoti Basu-Communism, West Bengal, 1977-2000, Impact of
-                        Communism in Bengal-Bridge to Cornwallis Permanent Settlement</span></div>
+                <div class="head"><div class="headline hl3">Jyoti Basu-Communism, West Bengal, 1977-2000, Impact of
+                        Communism in Bengal-Bridge to Cornwallis Permanent Settlement</div></div>
                 <p>The ripple effects of Russian revolution in 1917 reached British India that was fighting against a
                     similar “class” ideology. Consequently, in 1925 the foundation of communism was set in Kanpur.
                     However, due to weak leadership and dominance of Gandhian philosophy, communism in India was finding
@@ -914,8 +805,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section14'>
-                <div class="head"><span class="headline hl3">Cornwallis, Bengal, 1790-1800, Permanent Settlement System
-                        and how it impacted West Bengal</span></div>
+                <div class="head"><div class="headline hl3">Cornwallis, Bengal, 1790-1800, Permanent Settlement System
+                        and how it impacted West Bengal</div></div>
                 <p>From time Immemorial the State in India has claimed a certain proportion of the produce of every
                     bigha or acre of land. The laws of Manu declare that a king is entitled to an eighth, a sixth, or a
                     twelfth of the gross product. according to the difference of the soil and the labours necessary to
@@ -1016,8 +907,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section15'>
-                <div class="head"><span class="headline hl3">William Bentick, Bengal, 1828-1835, Bentick social
-                        reforms</span></div>
+                <div class="head"><div class="headline hl3">William Bentick, Bengal, 1828-1835, Bentick social
+                        reforms</div></div>
                 <p>Lord William Bentinck was born in London, the second son of the 3rd Duke of Portland. He was educated
                     at Rev. Dr Samuel Goodenough's school in Ealing, before moving on to Westminster School. After
                     completing his education, he embarked on a military career, moving swiftly up the ranks on account
@@ -1071,8 +962,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section16'>
-                <div class="head"><span class="headline hl3">Lord Dalhousie, Bengal, 1857, events leading to first war
-                        of independence</span></div>
+                <div class="head"><div class="headline hl3">Lord Dalhousie, Bengal, 1857, events leading to first war
+                        of independence</div></div>
                 <p>Lord Canning 1858 to 1862
 
 
@@ -1100,7 +991,7 @@
         </div>
         <div class="columns">
             <div class="column" id='section17'>
-                <div class="head"><span class="headline hl3">Lord Curzon, Bengal, 1905, partition of Bengal</span></div>
+                <div class="head"><div class="headline hl3">Lord Curzon, Bengal, 1905, partition of Bengal</div></div>
                 <p>Partition of Bengal, (1905), division of Bengal carried out by the British viceroy in India, Lord
                     Curzon, despite strong Indian nationalist opposition. It began a transformation of the Indian
                     National Congress from a middle-class pressure group into a nationwide mass movement.</p>
@@ -1159,8 +1050,8 @@
         </div>
         <div class="columns">
             <div class="column" id='section18'>
-                <div class="head"><span class="headline hl3">Writers Building-Bidhan Chandra Roy, Calcutta, 1950,
-                        explain his contribution in governing West Bengal</span></div>
+                <div class="head"><div class="headline hl3">Writers Building-Bidhan Chandra Roy, Calcutta, 1950,
+                        explain his contribution in governing West Bengal</div></div>
                 <p>B.C. Roy was a great planner for the improvement of education and culture of West Bengal. Due to the
                     efforts of B.C. Roy Viswa Bharati, established by Rabindra Nath Tagore in 1921 was elevated as Viswa
                     Bharati University under the Governance of the Government of India in 1951. It may be noted here
