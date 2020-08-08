@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RanchiMall Times</title>
     <script src="https://use.fontawesome.com/41cc35d596.js"></script>
-<link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
+
         .hide {
             display: none;
         }
@@ -40,7 +41,8 @@
         p {
             margin: 1.2rem 0;
         }
-        p:not(:first-of-type)::first-letter{
+
+        p:not(:first-of-type)::first-letter {
             margin-left: 4rem;
         }
 
@@ -60,7 +62,8 @@
             text-transform: uppercase;
             padding: 0.6rem 0;
         }
-        .subhead::after{
+
+        .subhead::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -115,7 +118,7 @@
         .column .headline.hl2 {
             font-weight: 400;
             font-size: 24px;
-            
+
             padding: 0.8rem 0;
         }
 
@@ -273,6 +276,12 @@
             width: 100%;
         }
 
+        :any-link {
+            text-decoration: none;
+            color: #DC143C;
+            cursor: pointer;
+        }
+
         /*________________________________________________________________________________________________________________________________*/
         /*MEDIAQUERIES*/
         @media all and (max-width: 1280px) {
@@ -287,19 +296,20 @@
             }
         }
 
-        @media all and (min-width: 640px){
-            .columns{
+        @media all and (min-width: 640px) {
+            .columns {
                 margin: 0 2vw;
             }
         }
-        @media all and (min-width: 1920px){
-            .columns{
+
+        @media all and (min-width: 1920px) {
+            .columns {
                 margin: 0 4vw;
             }
         }
     </style>
     <script>
-        window.console = window.console || function (t) { };
+        window.console = window.console || function (t) {};
     </script>
     <script>
         if (document.location.search.match(/type=embed/gi)) {
@@ -320,12 +330,12 @@
 
         for (let i = 0; i < repocontent.length; i++) {
             articlehtml = await (await fetch(repocontent[i]["download_url"])).text()
-            if(repocontent[i]['name'].slice(-5, repocontent[i]['name'].length)=='.html' && repocontent[i]['name'].slice(0, -5)!='index'){
+            if (repocontent[i]['name'].slice(-5, repocontent[i]['name'].length) == '.html' && repocontent[i][
+                    'name'
+                ].slice(0, -5) != 'index') {
                 articles[repocontent[i]['name'].slice(0, repocontent[i]['name'].length - 5)] = articlehtml
             }
         }
-
-        debugger
 
         parseArticles(articles)
         renderColumns(parsedarticles)
@@ -364,14 +374,15 @@
         }
     }
 
-    function renderColumns(parsedarticles){
+    function renderColumns(parsedarticles) {
 
         numberOfColumns = Object.keys(parsedarticles).length
-        let columns = document.getElementById('columnsmain')   
+        let columns = document.getElementById('columnsmain')
         //debugger 
         let parsedArticlesKeys = Object.keys(parsedarticles)
-        
-        for(let i=0; i<parsedArticlesKeys.length; i++){
+
+        for (let i = 0; i < parsedArticlesKeys.length; i++) {
+            debugger
             columnhtml = `<div class="column" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}">
                             <div class="head">
                                 <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
@@ -379,25 +390,22 @@
                             </div>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[1].paragraph}...</p>
-                            <div id="goforward" onclick="switchtoArticle(this.parentNode)" style="color:#DC143C">
-                                Read article
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </div>
-                          </div>` 
+                            <a href='./${parsedArticlesKeys[i]}.html'>Read article <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            
+                          </div>`
             //debugger;
             //columns.append(columnhtml)      
-            columns.innerHTML += columnhtml   
+            columns.innerHTML += columnhtml
             //debugger
-            
+
         }
     }
 
-    function switchtoArticle(element){
+    function switchtoArticle(element) {
         document.getElementById("homepage").classList.add('hide')
         document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
         document.getElementById("display_page_main").classList.remove('hide')
     }
-
 </script>
 
 <body translate="no">
@@ -550,9 +558,8 @@
         if (homepage.classList.contains('hide')) {
             homepage.classList.remove('hide')
             document.getElementById("display_page_main").classList.add('hide')
-        }
-        else {
-            
+        } else {
+
         }
     });
 
@@ -561,9 +568,8 @@
         if (homepage.classList.contains('hide')) {
             homepage.classList.remove('hide')
             document.getElementById("display_page_main").classList.add('hide')
-        }
-        else {
-            
+        } else {
+
         }
     });
 </script>
