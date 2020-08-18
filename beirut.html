@@ -1,0 +1,857 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RanchiMall Content Collaboration Output</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        body {
+            font-family: 'lora', serif;
+            font-size: 16px;
+            color: #2f2f2f;
+            background-color: #f9f7f1;
+        }
+
+        header {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            text-align: center;
+            font-size: 4rem;
+            text-transform: uppercase;
+            padding: 1rem 0;
+            letter-spacing: 6;
+        }
+
+        p {
+            margin: 1.2rem 0;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        p:not(:first-of-type)::first-letter {
+            margin-left: 4rem;
+        }
+
+        #homepage {
+            display: grid;
+        }
+
+        .content {
+            display: grid;
+            max-width: calc(100% - 2.4rem);
+        }
+
+        .head {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 1rem;
+
+        }
+
+        .subhead {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+            padding: 0.6rem 0;
+        }
+
+        .subhead::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 10%;
+            height: 0.1rem;
+            background: #2f2f2f;
+        }
+
+        .columns {
+            padding-top: 2rem;
+            display: grid;
+            width: calc(100% - 3rem);
+            grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+        }
+
+        .column {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            padding: 0 1.5rem;
+            width: calc(100% - 3rem);
+        }
+
+        .column .headline {
+            text-align: center;
+            line-height: normal;
+            font-family: 'lora', serif;
+            display: flex;
+        }
+
+        .column .headline.hl1 {
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: uppercase;
+            padding: 0.8rem 0;
+
+        }
+
+        .column .headline.hl2 {
+            font-weight: 400;
+            font-size: 24px;
+            padding: 0.8rem 0;
+        }
+
+        .column .headline.hl2:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .column .headline.hl2:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 13px;
+            display: flex;
+            margin: 0 auto;
+
+        }
+
+        .column .headline.hl3 {
+            font-weight: 400;
+            font-size: 36px;
+            padding: 0.8rem 0;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .column .headline.hl4 {
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+        }
+
+        .column .headline.hl4:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .column .headline.hl4:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: flex;
+            margin: 0 auto;
+
+        }
+
+        .topnav {
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a img {
+            width: 12rem;
+        }
+
+        /*________________________________________________________________________________________________________________________________*/
+        /*MEDIAQUERIES*/
+
+        @media all and (max-width: 640px) {
+            header {
+                font-size: 2.5rem;
+            }
+
+            .topnav a img {
+                width: 4rem;
+            }
+        }
+
+        @media all and (min-width: 640px) {
+            #bodydiv {
+                margin: 0 12vw;
+            }
+
+            .columns {
+                margin: 0 2vw;
+            }
+        }
+
+        @media all and (min-width: 1280px) {
+            #bodydiv {
+                margin: 0 20vw;
+            }
+
+            .columns {
+                margin: 0 2vw;
+            }
+        }
+
+        @media all and (min-width: 1920px) {
+            #bodydiv {
+                margin: 0 32vw;
+            }
+
+            .columns {
+                margin: 0 4vw;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+
+    <div class="topnav">
+        <a href="https://ranchimall.github.io/articles"><img id='ranchimalltimes-icon'
+                src="data:image/png;base64,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"></a>
+    </div>
+
+    <div id="bodydiv">
+        <div class="head">
+            <div class="headerobjectswrapper">
+                <header id='title'>Beirut </header>
+            </div>
+            <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
+        </div>
+        <div class="content" id='sectionmaster'>
+            <div class="columns">
+                <div class="column" id='section1'>
+                    <div class="head"><span class="headline hl3">Beirut blast</span></div>
+                    <p>Beirut is the capital of Lebanon and also the largest city of the country. On a peninsula at the
+                        midpoint of the Lebanon’s Mediterranean coast, Beirut is an important regional seaport. 
+
+
+                         Recently, during the novel corona virus pandemic a deadly blast took place in Beirut. On 4th of
+                        August, 2020 at 6:08 pm a powerful explosion took place in the city. The blast which followed
+                        the 
+                        fire at the port of Beirut, resulted 135 deaths , more than 80 missing and a large number of
+                        people
+                        left homeless. The roof of the warehouse caught alight and there was a large initial explosion,
+                        followed by a series of smaller blasts that some witnesses said sounded like fireworks going
+                        off.
+                        About 30 seconds later, there was a colossal explosion that sent a mushroom cloud into the air
+                        and a
+                        supersonic blastwave radiating through the city. That blastwave levelled buildings near the port
+                        and
+                        caused extensive damage over much of the rest of the capital, which is home to two million
+                        people.
+                        Hospitals were quickly overwhelmed, although some of them too were devastated due to the blast.
+                        The
+                        warehouse was completely eradicated and an adjacent grain silo was heavily damaged. The blast
+                        destroyed the immediate dockside area, creating a crater approximately 140 metres wide, which
+                        flooded with seawater. Satellite images highlight complete devastation in the port area, with
+                        one
+                        ship apparently blown out of the water and onto the dockside. The explosion's shockwave blew out
+                        windows at Beirut International Airport's passenger terminal, about 9km (5 miles) away from the
+                        port. The blast was also heard as far away as Cyprus, about 200km (125 miles) across the
+                        Mediterranean Sea, and seismologists at the United States Geological Survey said it was the
+                        equivalent of a 3.3-magnitude earthquake. . Kilometers from the port, balconies were knocked
+                        down,
+                        windows shattered, streets were covered with glass and bricks and lined with wrecked cars. The
+                        impact from the explosion shockwave was reportedly felt on the island of Cyprus 150 miles away
+                        also
+                        a civil defence official on the scene of the blast said his men had evacuated dozens to
+                        hospitals
+                        and that there were still bodies inside the port, many of them under debris. Scores of
+                        ambulances
+                        ferried the injured from the port area, where the wounded lay on the ground. The red cross has
+                        made
+                        an urgent call for blood donations while the head of Lebanese red cross told local TV there were
+                        hundreds of casualties although many were superficial wounds from broken glass. 
+
+
+                        The president Michel Aoun said that blast was caused by 2750 tonnes of ammonium nitrate it is
+                        used
+                        as fertilizer and even as an explosive. The chemical was confiscated by the government from a
+                        stranded ship and was stored in the port without proper safety measures for six long years.
+                        This has lead to a blame game in the country among the official and the government. The head of
+                        custom authority and the head of port told that they had written the judiciary several times
+                        asking
+                        for the chemical to be sold to ensure the safety of the port but no action was taken for the
+                        above.
+                        The economic minister of the country says, “I think it is all because of the bad management.”
+
+
+                        Specialist at the University of the Sheffield in the UK estimate that the blast had about one
+                        tenth
+                        of the explosive power of the atomic bomb dropped in Hiroshima and Nagasaki. The matter has been
+                        handed over to the specialists. Supreme defence council has vowed that found responsible will
+                        face
+                        maximum punishment. Even the netizens want a fair decision on the above.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section2'>
+                    <div class="head"><span class="headline hl3">Beirut explosion reason</span></div>
+                    <p>On 4th of August, 2020 in the evening a deadly  took place which created a shock wave that
+                        shattered
+                        glasses for miles in Beirut the capital of Lebanon. It is said that the explosion happened
+                        because
+                        of ammonium nitrate kept in the port from last six years without any precautionary measures.
+
+
+
+                        Multiple reports suggest that a huge tremor-causing explosion was preceded by a fire, possibly
+                        of
+                        firecrackers. Newly surfaced documents show that at least 10 times, over the past six years,
+                        authorities from Lebanon's customs, military, security agencies and judiciary raised alarm that
+                        a
+                        massive stockpile of explosive chemicals was being kept with almost no safeguard at the port in
+                        the
+                        heart of Beirut. But, the government did not heed attention to these documents reported
+                        earlier. 
+
+
+                        Large quantities of stored ammonium nitrate are regarded as a major fire hazard, with multiple
+                        reported cases across the world. Big stockpiles of ammonium nitrate can explode in two possible
+                        ways. One is by some type of detonation or initiation because the storage comes in contact with
+                        explosive mixture or an outside source of energy. Second, the blast can result due to a fire
+                        which
+                        starts into the ammonium nitrate storage because of the heat generated due to the oxidation
+                        process
+                        at large scale. 
+
+
+                        Primary observations by the experts point serious lack of maintaining safety norms at the
+                        explosive
+                        storage of such chemical. There are also questions about how ammonium nitrate and another source
+                        of
+                        fire were present so close to each other, which caused the widespread destruction.
+
+
+                        Lebanese President, Michel Aoun said "there are two possible causes of the explosion that killed
+                        nearly 150 people - either negligence or 'external intervention' by a missile or bomb." Aoun
+                        said
+                        the Lebanese government's investigation into the cause of the explosion is concentrating on 20
+                        people. Port officials have been put under house arrest. The explosion caused a deadly effect
+                        resulting 135 deaths, 5,000 injuries, more than 100 not found and approx 300,000 were left
+                        homeless.
+                        Due to this the government has announced an emergency for the next two weeks in the country. The
+                        case is under investigation as to know who triggered the explosion.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section3'>
+                    <div class="head"><span class="headline hl3">beirut death toll</span></div>
+                    <p>The full horror and scale of the damage caused by massive explosion in Lebanon's capital killed
+                        at
+                        least 100 people and injured thousands more. The blast triggered a huge mushroom cloud,
+                        flattering
+                        much of the city's port, damaging buildings, and littering debri's everywhere. A warehouse
+                        storing
+                        thousands of tons of unsecured highly volatile material has emerged as a possible source of
+                        explosion. Lebanon's health minister said that hundreds of people have been reportedly missing
+                        and
+                        death toll will likely increase. Following the explosion in Beirut on Tuesday (4Aug) the death
+                        toll
+                        has risen to at least 350 and the number of injured to 5000.
+
+
+
+
+                        International aid flights began to arrive, as Lebanon's leaders struggled to deal with the
+                        aftermath
+                        of the devastating blast, paralysed by an economic crisis and facing a public where many already
+                        blame chronic mismanagement for the disaster. The residents of Beirut are stunned, sleepless and
+                        stoic  as emerged from the aftermath of a catastrophic explosion searching for missing
+                        relatives,
+                        bandaging their wounds and retrieving the left out of their houses.
+
+
+                        Lebanon's cabinet declared a two-week state of emergency in the capital city and handed control
+                        of
+                        security in the capital to the military. Officials said they expect the death toll to rise
+                        further
+                        as emergency workers dig through the wreckage to search for survivors.
+
+
+                        Beirut's city governor, Marwan Abboud said up to 300,000 people have lost their homes and
+                        authorities are working on providing them with food, water and shelter.
+
+
+                        Prime Minister Hassan Diab, appealed to all countries and friends of Lebanon to extend help to
+                        the
+                        small nation, saying:  "We are witnessing a real catastrophe."  He declared a national day of
+                        mourning soon after the blast occurred. He said those responsible for the "catastrophe"  would
+                        be
+                        held to account. President Michel Aoun called for "urgent" defence council talk in the aftermath
+                        of
+                        the explosion.  
+                        EU Commissioner for Crisis Management said, the EU Civil Protection Mechanism is now
+                        coordinating
+                        the urgent deployment of over a 100 highly trained firefighters, with vehicles, dogs and
+                        equipment,
+                        specialised in search and rescue in urban contexts. "They will work with the Lebanese
+                        authorities to
+                        save lives on the ground."</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section4'>
+                    <div class="head"><span class="headline hl3">Beirut ammonium nitrate</span></div>
+                    <p>Tha countdown of this explosion started years back, when a troubled russian leased cargo ship
+                        made an
+                        unscheduled stop at the city's port. An indebted vessel crewed by sullen transport. The chemical
+                        "ammonium nitrate" was purchased by international Bank of Mozambique for making explosives it
+                        was
+                        being transported via leased russian ship. The people did not have money to pay for passage
+                        through
+                        the Suez canal. Thus, at the ship in Beirut port, after some legal procedure the vessel was kept
+                        in
+                        the port as they did not have money for further voyage. Later it was heard that the chemical
+                        will be
+                        auctioned but it never happened. All this ended on Tuesday in a giant explosion. It devastated
+                        one
+                        of the middle East most foundly regarded cities Beirut.
+
+
+                        Ammonium nitrate  is a white crystalline solid, which is soluble in water. It consists of ions
+                        of
+                        ammonium and nitrate. It is made in large industrial quantities through the chemical reaction of
+                        nitric oxide and ammonia. It is primarily used in agriculture as a high-nitrogen fertiliser, but
+                        it
+                        is also used to create commercial explosives for mining and construction. Ammonium nitrate is
+                        made
+                        all over the world and is relatively cheap to buy. But storing it can be a problem, and it has
+                        been
+                        associated with serious industrial accidents in the past
+                        Ammonium nitrate is an industrial chemical commonly used in fertilizers and as an explosive for
+                        quarrying and mining. It is an oxidizer considered relatively safe if uncontaminated. But it is
+                        extremely dangerous if contaminated, mixed with fuel or stored unsafely. A large quantity of
+                        ammonium nitrate exposed to intense heat can trigger an explosion. Storing the chemical near
+                        large
+                        fuel tanks in large quantities and in a poorly-ventilated facility can cause a massive blast.
+                        'This
+                        is probably up there among the biggest non-nuclear explosions of all time,' says Roland Alford,
+                        managing director of a company that specializes in the disposal of explosive ordnance. 
+
+
+                        A common chemical ingredient of agricultural fertilisers, the nitrogen rich compound is also the
+                        main component of the explosive composition known as ANFO — ammonium nitrate fuel oil. Ammonium
+                        Nitrate alone is not ANFO. ANFO is premixed Ammonium Nitrate and Fuel Oil (Diesel, Kerosine,
+                        fermented molasses,) powdered aluminum is sometimes added to the batches used for military
+                        grade 
+                        explosives to speed up the detonation.
+
+
+
+
+                        On its own, ammonium nitrate is relatively safe to handle. However, if large amount of this
+                        material
+                        lying around for a long time, it will begin to decay. Over time it will absorb bit of moisture
+                        and
+                        eventually turn into an enormous rock. This makes it more dangerous because if  fire reaches it,
+                        the
+                        chemical reaction will be intense. When ammonium nitrate explodes, it can release toxic gases
+                        including nitrogen oxides and ammonia gas. The nitrogen oxide, which is often associated with
+                        air
+                        pollution. 
+
+
+
+
+                        Ammonium nitrate has been used by armies around the world as an explosive. It has also been used
+                        in
+                        several terrorist acts. However, for combinations to explode, triggers like detonators are
+                        required.
+                        Many Improvised Explosive Devices (IEDs) used by terrorists around the world have ANFO as the
+                        main
+                        explosive, triggered by primary explosives like RDX or TNT. In the majority of terror attacks in
+                        India, including those in Pulwama, Varanasi, Malegaon, Pune, Delhi, Hyderabad, and Mumbai,
+                        ammonium
+                        nitrate has been used along with initiator explosives like RDX.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section5'>
+                    <div class="head"><span class="headline hl3">Beirut coronavirus cases</span></div>
+                    <p>The virus was confirmed to have reached  Lebanon in February 2020. Lebanon recorded its first
+                        case of
+                        coronavirus on February 21 and following the entry of several new cases coming. Thus, preventive
+                        measures were taken such as avoiding public venues, like resorts and theaters. Post this, the
+                        closure of schools, universities, and nurseries was extended to March 14. However, numbers
+                        steadily
+                        increased until a national lockdown was announced on March 15, supplemented by an overnight
+                        curfew
+                        11 days later. As of 10 June 2020, some of the hardest-hit cities and towns in the country
+                        include 
+                        Beirut and its metropolitan area, Bcharre in the north of the country and  Majdel Anjar in the 
+                        Beqaa Governorate. Lebanon recorded 3582 cases so far with 47 deaths and 1671 recoveries.
+
+
+                        Lebanon have been badly hit  by the corona virus pandemic, then the economic crisis and now the
+                        nuclear like explosion.
+                        After the catastrophic explosion that shook the city of Beirut on August 4,  Lebanon now
+                        recorded
+                        highest 255 fresh Covid-19 cases in a day. COVID-19 testing has been halted across Beirut
+                        following
+                        Tuesday’s deadly explosion. The blast struck the country amid an increasingly dangerous second
+                        wave
+                        of the virus, and experts are worried. Russia sent 5 Emergency Situations Ministry planes to
+                        Beirut
+                        to assist in eliminating the consequences of the explosion. A mobile hospital with doctors and a
+                        laboratory was also sent to Lebanon to detect the coronavirus. Thus, Lebanon has confirmed a
+                        RECORD
+                        255 coronavirus cases in the last 24 hours.
+                        The infection rate stands at 4,604 in the country, since the outbreak first began in February.
+                        The
+                        pandemic has heightened the woes of a crisis-hit country swaying from a massive explosion that
+                        killed more than 130 people, wounded at least 5,000 and left an estimated 300,000 homeless. Many
+                        people forgot their face masks as they packed up into vehicles, riding with strangers on the
+                        move to
+                        hospitals, which were also damaged by the explosion. This put a further strain on the nation's
+                        health system which was already running short on personal protective equipment and struggling
+                        with
+                        more than 5200 cases of COVID 19. 
+
+
+                        Health Minister, Hamad Hassan said "Due to the emergency and panic, I am worried that treating
+                        the
+                        wounded in hospitals and the loss of personal protection equipment supplies may have an impact
+                        on
+                        the number of coronavirus patients in the next 10 days." 
+
+
+                        Lebanon's hospitals were, for the first time in months, overwhelmed with cases other than
+                        COVID-19,
+                        with people severly wounded post explosion. Since the explosion, people have crowded into the
+                        hardest hit districts to scrutinize their damaged homes and businesses, or as volunteers in
+                        cleanup
+                        efforts. The blast forced authorities to suspend a lockdown that was supposed to last until
+                        August
+                        10.
+                        It is still too soon to know what impact the explosion will have on Lebanon’s coronavirus
+                        outbreak.
+                        Though testing, contact tracing and the hospitalization of severely ill patients continue,
+                        according
+                        to the World Health Organization, health workers and aid agencies are sounding the alarm.
+
+
+                        Beirut explosions stoke fears of coronavirus spike as hospitals are overwhelmed. The city is
+                        decimated with thousands of residents left homeless, a medical system already strained from
+                        coronavirus and up to $5 billion worth of damage.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section6'>
+                    <div class="head"><span class="headline hl3">Beirut demographics</span></div>
+                    <p>Any country's or city's demographics play's a very important role in it's planning and
+                        development.
+                        It is very strange to come across the fact that the country Lebanon's capital Beirut also known
+                        as
+                        largest city of the country has not taken a formal census or population count since 1930's.
+                        Because
+                        of that the exact population count of the country varies depending on the sources.
+                         No recent population census has been conducted, but 2007 estimates ranged from slightly more
+                        than 1
+                        million to 2.2 million as part of Greater Beirut which makes it the third largest city in the
+                        Levant
+                        region and the fifteenth - largestin the Arab world. 
+
+
+                        Beirut's 2020 population is now estimated at 2,424,425. In 1950, the population of Beirut was
+                        322,360. Beirut has grown by 195,720 since 2015, which represents a 1.70% annual change. These
+                        population estimates and projections come from the latest revision of the UN World urbanisation
+                        projects. These estimates represent the Urban agglomeration of Beirut, which typically includes
+                        Beirut's population in addition to adjacent suburban areas. Though, recent estimates put the
+                        population at around 361,000 with the broader metro area being home to over 2.2 million
+                        residents.
+
+
+                        On a peninsula  at the midpoint of Lebanon's Mediterranean coast, Beirut is an important
+                        regional
+                        seaport. It is one of the most religious and diverse cities in the Middle East. There is a total
+                        of
+                        18 recognized religions within the area, include four Muslim sects, twelve Christian sects, and
+                        a
+                        Jewish sect. The city was relatively well blended until the civil war when segregation occurred.
+                        The
+                        eastern side of the city is mainly Christian, while the western side has a Sunni Muslim
+                        majority.
+                        However, in recent years, religious groups are becoming more integrated.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section7'>
+                    <div class="head"><span class="headline hl3">Beirut government</span></div>
+                    <p>The capital of Lebanon, Beirut which faced a deadly blast on Tuesday 4th August 2020 is going
+                        through
+                        its worst phase after the explosion that took place. The country was already suffering a major
+                        economic downturn before the devastating explosion and UN agencies have warned of a humanitarian
+                        crisis unless food and medical aid are delivered swiftly.
+                        The Lebanese Parliament, all the Ministries and most of the public administrations, embassies
+                        and
+                        consulates are there.  Beirut Governorate is one of eight mohafazat.
+
+
+
+
+                        Reports quickly emerged that Lebanese customs officials had requested the disposal of the highly
+                        combustible materials. Public outrage erupted in Beirut, after reports emerged that the Lebanese
+                        government had known about the explosive materials being stored at the port that fueled the
+                        deadly
+                        catastrophe, though their disposal had been requested on multiple occasions. Protestors marched
+                        towards the government building shouting to change the president. As they call the blast the
+                        result
+                        of negligence of the government. Ater the blast France president visited the city and promised
+                        to
+                        help them. But he even stated that he won't give a blank check to such a government whose
+                        citizens
+                        doesn't have faith on them. The country was already going through economic crises due to corona
+                        virus disease. Many lost jobs, undisputed deaths due to covid-19, with edible shortage for the
+                        public. This was worsen by the deadly blast. Because of the early condition and addition to that
+                        this blast have not even left them in a condition to rebuild their home.
+
+
+                        The tragedy has triggered widespread outrage in Lebanon, where people see it symbolically, the
+                        persistent government corruption and neglect, calling for the resignation of the country’s top
+                        politicians. 
+
+
+                        Lebanese Prime Minister, Hassan Diab and his cabinet resigned after the deadly explosion under
+                        pressure from protests over long term government neglect and corruption that have sought to
+                        overturn
+                        the country's political elite and devastated large parts of central Beirut. Mr. Diab said,  
+                        "I set out to combat corruption, but I discovered that corruption is bigger than the state, I
+                        declare today the resignation of this government. God bless Lebanon." He will go to the
+                        presidential
+                        palace to "hand over the resignation in the name of all the ministers." Several key ministers
+                        and at
+                        least nine members of parliament announced their resignations. However,  the Cabinet members
+                        will
+                        continue to serve in a caretaker role until a new government is formed.
+
+
+
+
+                        Mr. Diab's government lasted less than eight months. It was formed in January after the former
+                        prime
+                        minister, Saad Hariri, stepped aside in late 2019 under pressure from protests that demanded
+                        political reform and an end to corruption.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section8'>
+                    <div class="head"><span class="headline hl3">Beirut economic crisis</span></div>
+                    <p>The city Beirut of lebanon is going through a tough time from a long time. The country is going
+                        through a economic crisis, financial crisis and government crisis. Lebanon's economy was already
+                        in
+                        crisis then the blast hit Beirut. Soon after the explosion, there is crisis amid food shortages,
+                        economic struggle.
+                        The massive explosion swayed the city Beirut with 135 people dead and 5,000 injured. However,
+                        the
+                        number of deaths is expected to raise. Moreover, the blast displaced 300,000 people.
+
+
+                        In the past year, a breakdown in the country's banking system and inflation had triggered mass
+                        protests. Even before the Covid-19 pandemic hit, the World Bank projected that 45% of people in
+                        Lebanon would be below the poverty line in 2020. The situation such that middle class and poor
+                        people are not able to afford important households. It can also be called as a health crisis.
+                        The
+                        International Monetary Fund last forecast that Lebanon's economy - beset by soaring food prices,
+                        a
+                        collapsing currency and Covid-19 - would contract by 12% this year. That is far worse than the
+                        4.7%
+                        average drop in output forecast for the Middle East and central Asia. The country defaulted on
+                        some
+                        of its debt in March. Lebanon had been looking to secure a $10 billion loan from the IMF, but
+                        talks
+                        stalled last month.
+
+
+                        Few months ago as an economic crisis caused the country's capital to collapse and sore. The
+                        country's pound or lira has lost about 85% of its value. It is said to be a result of government
+                        corruption and financial mismanagement. This lead to unemployment and poverty. There have been
+                        many
+                        protests against the political elites due to the breakdown of banking system and sky rocking in
+                        the
+                        country. All this paused after the lockdown imposed due to COVID 19. 
+
+
+                        The mass protest again gained pace after the explosion took place on 4th August,2020 in Beirut
+                        port.
+                        As people claim it to be a result of complete negligence and mismanagement of the government. As
+                        the
+                        explosion took place because of ammonium nitrate which is highly combustible, even after knowing
+                        all
+                        this and receiving letter regarding removing it, and essential precautionary measures to the
+                        same
+                        the government and ministry did nothing. This period has made rich richer, middle class a poor
+                        and
+                        the poors to a detitue.
+
+
+                        The nation's government debt levels have for years been among the highest in the world, as were
+                        current account deficits. Lebanon produces little and depends heavily on imports, including most
+                        of
+                        its food. It was borrowing heavily to pay for these imports. The collapse of Lebanon's financial
+                        system is symptomatic of a wider failure of governance.
+
+
+                        The explosion declared Beirut, a "disaster city", has piled more pressure on its economy. The
+                        incident destroyed dozens of buildings. The major part of the city is swayed. The port where the
+                        blast occurred is the nation's main maritime hub, and 60% of the country's imports pass through
+                        it.
+                        With the Lebanese currency in free fall and unemployment above 30 per cent, it is predicted more
+                        than half the population will be living in poverty by the end of the year.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section9'>
+                    <div class="head"><span class="headline hl3">Beirut Hariri Trial</span></div>
+                    <p>On  14th of February, 2005 the former Lebanese Prime Minister, Rafik Hariri was killed when a car
+                        bomb exploded as his convoy passed in a street in central Beirut.  After fifteen and a half
+                        years, a
+                        UN-backed tribunal has tried four members of Hezbollah in their absence, on charges of allegedly
+                        planning and organising this attack. 
+
+
+                        The incident took place 15years ago in Beirut one of the city of lebanon, when Rafik Hariri  was
+                        executed along with 21 others. By a suicide bomber in an explosive packed van, behind which
+                        Hariri
+                        car was being driven. This blast devasted the capital of Lebanon roiled the middle East.
+                         The case gained pace in the year 2009 and the entire trial was based of phone records. The
+                        Lebanon's suspected the blast was done by Syria as they always interfere in their matter. After
+                        the
+                        investigation they took out warrant against four. Tribunal faces doubts as Hezbollah chief
+                        Hassan
+                        Nasrallah refused to hand over the defendants.
+
+
+                        The four defendants were:
+                        Salim Ayyash, 56, is accused of leading the team that carried out the bombing, which involved a
+                        truck packed full of explosives that detonated near Hariri’s motorcade on February 14, 2005.
+                        Assad Sabra, 43, and Hussein Oneissi, 46, asent a fake video to news channel claiming
+                        responsibility
+                        on behalf of a made-up group.
+                        Hassan Habib Merhi, 54, is accused of general involvement in the plot.
+                        The alleged mastermind of the bombing, Hezbollah commander Mustafa Badreddine, is believed to
+                        have
+                        died while fighting with the Syrian government in May 2016. And many more alligations were
+                        imposed
+                        upon them. They will be punished with a sentence of life imprisonment if convicted. 
+
+
+                        The current prime minister said that the circumstances brought about by the pandemic,  Lebanon
+                        should avoid riots triggered by the court's verdict. "Confronting the conflicts is a priority." 
+                         Salim Jamil Ayyash, Hassan Habib Merhi, Assad Hassan Sabra and Hussein Hassan Oneissi are
+                        accused
+                        of allegedly conspiring to commit the terrorist attack that killed Hariri and 21 others. 
+
+
+                        Although the verdict was scheduled to be announced in May, it had to be delayed because of the
+                        COVID-19 pandemic. The attack was claimed by a previously unknown fundamentalist group called
+                        Victory of the Jihad in Greater Syria. However, the accusation believes that it could be a false
+                        claim, so they initiated the corresponding proceedings. This 'in absentia' trial is the first
+                        such
+                        trial since the Nuremberg trials after World War II.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column" id='section10'>
+                    <div class="head"><span class="headline hl3">Beirut famous for</span></div>
+                    <p>Beirut the capital and the largest city in Lebanon has its own uniqueness and importance. The
+                        city is
+                        also known as Paris of middle East as percolotes the same old city captivating french. The
+                        reason
+                        behind this resemblance is that, lebanon was under French control from 1920 to 1943.
+
+
+                        In the words of the famous poet Mahmoud Darwish, "A city that cannot be known by its smell is
+                        unreliable..... A smell is a memory and a setting sun." 
+                        The tangy smell of a manoushe, where zaatar and zeit collide to create the most fragrant of
+                        smells,
+                        always remind one of Beirut. Despite being one of the smallest countries in the middle east and
+                        all
+                        of Aisa. Lebanon debatably has the most diverse culture. Its multi-religious, multi-ethnic and
+                        multi- lingual.
+
+
+                        All the places to visit in Beirut city share history and character with some of the most exotic
+                        cities in the world- Italy, Morocco, Egypt, and Greece. Beirut is the capital and the largest
+                        city
+                        of Lebanon. It is one of the oldest cities in the world, having been inhabited for more than
+                        5,000
+                        years. 
+
+
+                        Beirut sits on a peninsula extending westward into the Mediterranean Sea. It is flanked by the
+                        Lebanon Mountains and has taken on a triangular shape, largely influenced by its situation
+                        between
+                        and two hills. The coast is diverse, with rocky beaches, sandy shores and cliffs situated beside
+                        one
+                        another. 
+
+
+                        The country has a great history and culture as it has witnessed ravages of time and war. Which
+                        one
+                        of the main reason of having museums in the city. It is one of the world's oldest continually
+                        inhabited city which makes a whole lot of history. This can even be seen as many nondescript
+                        mid-century residence and houses make its architectural pearls stand out even more in context.
+                        It is
+                        also known for its historical  buildings and archeology. The wide avenues and boulevards built
+                        by
+                        French colonial rulers match the glorious mosque complexes that were built by the Ottomans and
+                        the
+                        Mamluks, and the ancient ruins of Roman temples and bathhouse top it all.
+
+
+                        Regarding food it is said they the Lebanese dispora has awoken the hunger for hummus and
+                        tabbouleh
+                        all around the world.  The country is one of the best producers of wine and till date the city
+                        is
+                        considered as the best terrain for viticulture (cultivation of grapes for wine). The food scene
+                        in
+                        Beirut is incredible, albeit expensive Typical Lebanese dishes like hummus, fattoush, za’atar
+                        salad
+                        and falafel are famous here. Since, Beirut being an international city, virtually every other
+                        cuisine is available as well.
+
+
+                        It is a place where years of history have been showcased. From the large ruins of ancient Rome
+                        to
+                        Ksara wine, there is a lot Beirut is known for along with a long list of places to visit in
+                        Beirut.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
