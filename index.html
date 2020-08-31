@@ -480,162 +480,6 @@
     </div>
 </body>
 
-<script>
-    // helper functions 
-    (async () => {
-        let repourl = "https://api.github.com/repos/ranchimall/articles/contents"
-        let repocontent = null
-        window.articles = {}
-        window.parsedarticles = {}
-
-        repocontent = await (await fetch(repourl)).json();
-
-        for (let i = 0; i < repocontent.length; i++) {
-            articlehtml = await (await fetch(repocontent[i]["download_url"])).text()
-            if (repocontent[i]['name'].slice(-5, repocontent[i]['name'].length) == '.html' && repocontent[i][
-                    'name'
-                ].slice(0, -5) != 'index') {
-                articles[repocontent[i]['name'].slice(0, repocontent[i]['name'].length - 5)] = articlehtml
-            }
-        }
-
-        parseArticles(articles)
-        renderColumns(parsedarticles)
-        
-        let allArticles = document.querySelectorAll('[data-articlekey]')
-        let map_articlekey_column = {}
-
-        for (let i = 0; i < allArticles.length; i++) {
-            map_articlekey_column[`${allArticles[i].dataset.articlekey}`] = allArticles[i].id
-        }
-
-        // User list related operations 
-        let articleInfo = floGlobals.generalData[
-            '{"application":"TestApp","type":"test"}']
-
-        for (let i = 0; i < articleInfo.length; i++) {
-
-            if (articleInfo[i].sender == myFloID) {
-
-                let article_message = JSON.parse(articleInfo[i].message)
-                let article_column_number = map_articlekey_column[article_message.articlekey]
-                
-                document.getElementById(`${article_column_number}_thumbs`).classList.value = 'fa fa-thumbs-up'
-
-            }
-        }
-    })();
-
-    async function fetchArticleDetails() {
-        let applicants = await floCloudAPI.requestGeneralData('test')
-    }
-
-    function parseArticles(articles) {
-        let totalarticles = Object.keys(articles).length
-        articlekeys = Object.keys(articles)
-        let domparser = new DOMParser();
-
-
-        for (let i = 0; i < totalarticles; i++) {
-
-            let currentarticle = {}
-
-            let articlehtml = articles[articlekeys[i]]
-            let parsedhtml = domparser.parseFromString(articlehtml, 'text/html')
-
-            currentarticle['title'] = parsedhtml.getElementById('title').innerText
-            currentarticle['subtitle'] = parsedhtml.getElementById('subtitle').innerText
-            currentarticle['sections'] = {}
-
-            totalsections = parsedhtml.getElementById('sectionmaster').childElementCount
-
-            for (let j = 0; j < totalsections; j++) {
-                tempobj = {}
-                asection = parsedhtml.getElementById(`section${j + 1}`)
-                sectiontitle = asection.children[0].children[0].innerText
-                sectionpara1 = asection.children[1].innerText
-                tempobj['title'] = sectiontitle
-                tempobj['paragraph'] = sectionpara1
-                currentarticle['sections'][j] = tempobj
-            }
-
-            parsedarticles[articlekeys[i]] = currentarticle
-        }
-    }
-
-    function renderColumns(parsedarticles) {
-
-        numberOfColumns = Object.keys(parsedarticles).length
-        let columns = document.getElementById('columnsmain')
-        let parsedArticlesKeys = Object.keys(parsedarticles)
-
-        for (let i = 0; i < parsedArticlesKeys.length; i++) {
-            columnhtml = `<div class="column" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}">
-                            <div class="head">
-                                <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
-                                <p><span class="headline hl4">${parsedarticles[parsedArticlesKeys[i]].subtitle}</span></p>
-                            </div>
-                            <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
-                            <span><a href='./${parsedArticlesKeys[i]}.html'>Read article 
-                                                                      <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
-                            </a>
-                            <i  class="fa fa-thumbs-o-up" aria-hidden="true" style="float:right" id="column${i+1}_thumbs" onclick="clickProcess(this)"></i>
-                            <span>
-                            
-                            
-                          </div>`
-            //columns.append(columnhtml)      
-            columns.innerHTML += columnhtml
-
-        }
-    }
-
-    function switchtoArticle(element) {
-        document.getElementById("homepage").classList.add('hide')
-        document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
-        document.getElementById("display_page_main").classList.remove('hide')
-    }
-
-    function clickProcess(element) {
-        console.log('woohooo I just clicked')
-        let columnName = element.id.split('_')[0]
-
-        if (element.classList.value == 'fa fa-thumbs-o-up') {
-
-            let articlekey = document.getElementById(columnName).dataset.articlekey
-            let mainObj = {
-                'floID': myFloID,
-                'articlekey': articlekey
-            }
-
-            floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'test').then((result, mainObj) => {
-                element.classList.value = 'fa fa-thumbs-up'
-            })
-        }
-    }
-
-    let homepage = document.getElementById("homepage");
-    document.getElementById("go_back").addEventListener("click", function () {
-        console.log("Registered a click")
-        if (homepage.classList.contains('hide')) {
-            homepage.classList.remove('hide')
-            document.getElementById("display_page_main").classList.add('hide')
-        } else {
-
-        }
-    });
-
-    document.getElementById("go_back_bottom").addEventListener("click", function () {
-        console.log("Registered a click")
-        if (homepage.classList.contains('hide')) {
-            homepage.classList.remove('hide')
-            document.getElementById("display_page_main").classList.add('hide')
-        } else {
-
-        }
-    });
-</script>
-
 <script id="floGlobals">
     /* Constants for FLO blockchain operations !!Make sure to add this at begining!! */
     const floGlobals = {
@@ -8033,6 +7877,7 @@
         }
     }
 </script>
+
 <script id="floBlockchainAPI">
     /* FLO Blockchain Operator to send/receive data from blockchain using API calls*/
     const floBlockchainAPI = {
@@ -8467,6 +8312,7 @@
         }
     }
 </script>
+
 <script id="floSupernode">
     /* flo Supernode Operators to send/receive data from supernodes using websocket */
     const floSupernode = {
@@ -9104,6 +8950,7 @@
         }
     }
 </script>
+
 <script id="compactIDB">
     /* Compact IndexedDB operations */
 
@@ -9292,6 +9139,7 @@
         }
     }
 </script>
+
 <script id="floCloudAPI">
     /* FLO Cloud operations to send/request application data*/
     const floCloudAPI = {
@@ -9492,6 +9340,7 @@
         }
     }
 </script>
+
 <script id="floDapps">
     /* General functions for FLO Dapps*/
     const floDapps = {
@@ -9878,7 +9727,157 @@
     reactor.registerEvent("startUpErrorLog");
     reactor.addEventListener("startUpErrorLog", log => console.error(log))
 </script>
+
+<script>
+    // helper functions 
+    (async () => {
+        let repourl = "https://api.github.com/repos/ranchimall/articles/contents"
+        let repocontent = null
+        window.articles = {}
+        window.parsedarticles = {}
+
+        repocontent = await (await fetch(repourl)).json();
+
+        for (let i = 0; i < repocontent.length; i++) {
+            articlehtml = await (await fetch(repocontent[i]["download_url"])).text()
+            if (repocontent[i]['name'].slice(-5, repocontent[i]['name'].length) == '.html' && repocontent[i]['name'].slice(0, -5) != 'index') {
+                articles[repocontent[i]['name'].slice(0, repocontent[i]['name'].length - 5)] = articlehtml
+            }
+        }
+
+        parseArticles(articles)
+        renderColumns(parsedarticles)
+    
+    })();
+
+    async function fetchArticleDetails() {
+        let applicants = await floCloudAPI.requestGeneralData('test')
+    }
+
+    function parseArticles(articles) {
+        let totalarticles = Object.keys(articles).length
+        articlekeys = Object.keys(articles)
+        let domparser = new DOMParser();
+
+
+        for (let i = 0; i < totalarticles; i++) {
+
+            let currentarticle = {}
+
+            let articlehtml = articles[articlekeys[i]]
+            let parsedhtml = domparser.parseFromString(articlehtml, 'text/html')
+
+            currentarticle['title'] = parsedhtml.getElementById('title').innerText
+            currentarticle['subtitle'] = parsedhtml.getElementById('subtitle').innerText
+            currentarticle['sections'] = {}
+
+            totalsections = parsedhtml.getElementById('sectionmaster').childElementCount
+
+            for (let j = 0; j < totalsections; j++) {
+                tempobj = {}
+                asection = parsedhtml.getElementById(`section${j + 1}`)
+                sectiontitle = asection.children[0].children[0].innerText
+                sectionpara1 = asection.children[1].innerText
+                tempobj['title'] = sectiontitle
+                tempobj['paragraph'] = sectionpara1
+                currentarticle['sections'][j] = tempobj
+            }
+
+            parsedarticles[articlekeys[i]] = currentarticle
+        }
+    }
+
+    function renderColumns(parsedarticles) {
+
+        numberOfColumns = Object.keys(parsedarticles).length
+        let columns = document.getElementById('columnsmain')
+        let parsedArticlesKeys = Object.keys(parsedarticles)
+
+        for (let i = 0; i < parsedArticlesKeys.length; i++) {
+            columnhtml = `<div class="column" id="column${i+1}" data-articlekey="${parsedArticlesKeys[i]}">
+                            <div class="head">
+                                <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
+                                <p><span class="headline hl4">${parsedarticles[parsedArticlesKeys[i]].subtitle}</span></p>
+                            </div>
+                            <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
+                            <span><a href='./${parsedArticlesKeys[i]}.html'>Read article 
+                                                                      <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
+                            </a>
+                            <span style="float:right"><span id="column${i+1}_count"></span><i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="column${i+1}_thumbs" onclick="clickProcess(this)"></i></span>
+                            <span>
+                            
+                          </div>`
+            //columns.append(columnhtml)      
+            columns.innerHTML += columnhtml
+
+        }
+    }
+
+    function switchtoArticle(element) {
+        document.getElementById("homepage").classList.add('hide')
+        document.getElementById("displaypage").innerHTML = articles[element.dataset.articlekey]
+        document.getElementById("display_page_main").classList.remove('hide')
+    }
+
+    function clickProcess(element) {
+        console.log('woohooo I just clicked')
+        let columnName = element.id.split('_')[0]
+
+        if (element.classList.value == 'fa fa-thumbs-o-up') {
+
+            let articlekey = document.getElementById(columnName).dataset.articlekey
+            let mainObj = {
+                'floID': myFloID,
+                'articlekey': articlekey
+            }
+
+            floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'test').then((result, mainObj) => {
+                element.classList.value = 'fa fa-thumbs-up'
+
+                if (document.getElementById(`${columnName}_count`).innerText == '') {
+                    document.getElementById(`${columnName}_count`).innerText = '1'
+                } else {
+                    document.getElementById(`${columnName}_count`).innerText = parseInt(document.getElementById(
+                        `${columnName}_count`).innerText) + 1
+                }
+            })
+        }
+    }
+
+    let homepage = document.getElementById("homepage");
+    document.getElementById("go_back").addEventListener("click", function () {
+        console.log("Registered a click")
+        if (homepage.classList.contains('hide')) {
+            homepage.classList.remove('hide')
+            document.getElementById("display_page_main").classList.add('hide')
+        } else {
+
+        }
+    });
+
+    document.getElementById("go_back_bottom").addEventListener("click", function () {
+        console.log("Registered a click")
+        if (homepage.classList.contains('hide')) {
+            homepage.classList.remove('hide')
+            document.getElementById("display_page_main").classList.add('hide')
+        } else {
+
+        }
+    });
+</script>
+
 <script id="onLoadStartUp">
+    function updateVotes(articles_votesmapping, map_articlekey_column) {
+
+        var articleKeys = Object.keys(map_articlekey_column)
+        for (let i = 0; i < articleKeys.length; i++) {
+            if (articleKeys[i] in articles_votesmapping) {
+                document.getElementById(`${map_articlekey_column[articleKeys[i]]}_count`).innerText =
+                    articles_votesmapping[articleKeys[i]]
+            }
+        }
+    }
+
     let myCustomLogin = function () {
         return new Promise((resolve, reject) => {
 
@@ -9894,6 +9893,8 @@
         //floDapps.addStartUpFunction('Sample', Promised Function)
         //floDapps.setAppObjectStores({sampleObs1:{}, sampleObs2:{options{autoIncrement:true, keyPath:'SampleKey'}, Indexes:{sampleIndex:{}}}})
         floDapps.setCustomPrivKeyInput(myCustomLogin);
+        
+        floCloudAPI.requestGeneralData('test');
 
         floDapps.launchStartUp().then(result => {
             document.getElementById("login-button").style.display = 'none'
@@ -9904,16 +9905,47 @@
             //App functions....
             let articledata = floCloudAPI.requestGeneralData('test')
 
-
             Promise.all([articledata]).then((values) => {
                 console.log("The promises just got resolved")
                 console.log(values)
+
+                let allArticles = document.querySelectorAll('[data-articlekey]')
+                let map_articlekey_column = {}
+
+                for (let i = 0; i < allArticles.length; i++) {
+                    map_articlekey_column[`${allArticles[i].dataset.articlekey}`] = allArticles[i].id
+                }
+
+                // User list related operations 
+                let articleInfo = floGlobals.generalData[
+                    '{"application":"TestApp","type":"test"}']
+
+                let articles_votesmapping = {}
+
+                for (let i = 0; i < articleInfo.length; i++) {
+
+                    let article_message = JSON.parse(articleInfo[i].message)
+                    if (articleInfo[i].sender == myFloID) {
+
+                        let article_column_number = map_articlekey_column[article_message.articlekey]
+
+                        document.getElementById(`${article_column_number}_thumbs`).classList.value =
+                            'fa fa-thumbs-up'
+                    }
+
+                    if (!(article_message.articlekey in articles_votesmapping)) {
+                        articles_votesmapping[article_message.articlekey] = 1
+                    } else {
+                        articles_votesmapping[article_message.articlekey]++
+                    }
+                }
+
+                updateVotes(articles_votesmapping, map_articlekey_column)
             });
 
 
         }).catch(error => console.error(error))
     }
 </script>
-
 
 </html>
