@@ -9737,7 +9737,7 @@
 
             requestData(request = []) {
                 return new Promise((resolve, reject) => {
-                    var websocket = new WebSocket("ws://" + floGlobals.webAppURL + "/ws");
+                    var websocket = new WebSocket("wss://" + floGlobals.webAppURL + "/ws");
                     websocket.onmessage = (evt => {
                         if (evt.data == '$+') {
                             websocket.send(`?${JSON.stringify(request)}`);
@@ -9964,6 +9964,7 @@
                 articles_votesmapping[article_message.articlekey]++
             }
         }
+
 
         updateVotes(articles_votesmapping, map_articlekey_column)
 
