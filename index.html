@@ -336,6 +336,7 @@
         <div id='user-button' style="float: right; font-family: 'Roboto'; margin:1rem; cursor:pointer; display: none;">
             <span style="padding-right: 0.5rem; font-weight:bold"><i class="fa fa-user-circle-o fa-2x"
                     aria-hidden="true"></i></div>
+
     </div>
 
     <div id='homepage'>
@@ -504,12 +505,13 @@
 
         //for cloud apps
         subAdmins: [],
-        webAppURL: "167.172.219.249:8368",
+        webAppURL: "ranchimalltimes-webappserver.duckdns.org",
         application: "TestApp",
         vectorClock: {},
         appObjects: {},
         generalData: {},
         generalVC: {}
+        
 
     }
 </script>
@@ -9876,24 +9878,28 @@
         console.log('woohooo I just clicked')
         let columnName = element.id.split('_')[0]
 
-        if (element.classList.value == 'fa fa-thumbs-o-up') {
-
-            let articlekey = document.getElementById(columnName).dataset.articlekey
-            let mainObj = {
-                'floID': myFloID,
-                'articlekey': articlekey
-            }
-
-            floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'test').then((result, mainObj) => {
-                element.classList.value = 'fa fa-thumbs-up'
-
-                if (document.getElementById(`${columnName}_count`).innerText == '') {
-                    document.getElementById(`${columnName}_count`).innerText = '1'
-                } else {
-                    document.getElementById(`${columnName}_count`).innerText = parseInt(document.getElementById(
-                        `${columnName}_count`).innerText) + 1
+        if (typeof mainObj !== 'undefined') {
+            if (element.classList.value == 'fa fa-thumbs-o-up') {
+                let articlekey = document.getElementById(columnName).dataset.articlekey
+                let mainObj = {
+                    'floID': myFloID,
+                    'articlekey': articlekey
                 }
-            })
+
+                floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'test').then((result, mainObj) => {
+                    element.classList.value = 'fa fa-thumbs-up'
+
+                    if (document.getElementById(`${columnName}_count`).innerText == '') {
+                        document.getElementById(`${columnName}_count`).innerText = '1'
+                    } else {
+                        document.getElementById(`${columnName}_count`).innerText = parseInt(document.getElementById(
+                            `${columnName}_count`).innerText) + 1
+                    }
+                })
+            }
+        }
+        else {
+            alert("Please login to vote")
         }
     }
 
@@ -9980,6 +9986,12 @@
             });
         })
     }
+
+    document.getElementById("user-button").addEventListener("click", function () {
+        floDapps.clearCredentials()
+        alert('Successfully cleared credentials')
+        //location.reload()
+    });
 
     function onLoadStartUp() {
 
