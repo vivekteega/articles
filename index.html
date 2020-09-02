@@ -10030,7 +10030,6 @@
             }
         }
 
-
         updateVotes(articles_votesmapping, map_articlekey_column)
 
     })
@@ -10061,6 +10060,7 @@
 
             document.getElementById("continue-login-button").addEventListener("click", function () {
                 let userprivatekey = document.getElementById('gen-privateKey').value.trim()
+                alert('Please save your Private Key! We do not store it and it cannot be recovered')
                 document.getElementById('login-popup').hide()
                 resolve(userprivatekey)
             });
