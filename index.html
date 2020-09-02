@@ -10028,7 +10028,6 @@
         }
 
         parseArticles(articles)
-        debugger
         let map_articlekey_column = renderColumns(parsedarticles)
         let articleInfo = values[1]
         let articles_votesmapping = {}
@@ -10097,7 +10096,11 @@
 
     document.getElementById('logout-button').addEventListener("click", function () {
         floDapps.clearCredentials()
-        notifications.push('Succesfully logged out')
+        notifications.push('Succesfully logged out')  
+        setTimeout(function () {
+            location.reload()  
+        }, 2000);    
+
     })
 
     document.getElementById('settings-button').addEventListener("click", function () {
