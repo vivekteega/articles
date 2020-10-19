@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RanchiMall Times</title>
     <script src="https://use.fontawesome.com/41cc35d596.js"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -748,8 +746,9 @@
         fee: 0.0005,
 
         //Required for Supernode operations
-        SNStorageID: "FEzk75EGMPEQMrCuPosGiwuK162hcEu49E",
+        SNStorageID: "FNaN9McoBAEFUjkRmNQRYLmBF8SpS7Tgfk",
         supernodes: {}, //each supnernode must be stored as floID : {uri:<uri>,pubKey:<publicKey>}
+
 
         //for cloud apps
         subAdmins: [],
@@ -9979,57 +9978,55 @@ Bitcoin.Util = {
 
     updateDate();
 
-    async function fetchArticleDetails() {
+    /* async function fetchArticleDetails() {
         let applicants = await floCloudAPI.requestGeneralData('article_votes_test5')
-    }
+    } */
 
     function parseArticles(articles) {
-        let totalarticles = Object.keys(articles).length
-        articlekeys = Object.keys(articles)
-        let domparser = new DOMParser();
-
+        let totalarticles = Object.keys(articles).length,
+        articlekeys = Object.keys(articles),
+        domparser = new DOMParser();
 
         for (let i = 0; i < totalarticles; i++) {
 
-            let currentarticle = {}
+            let currentarticle = {},
+                articlehtml = articles[articlekeys[i]],
+                parsedhtml = domparser.parseFromString(articlehtml, 'text/html'),
+                currentarticle_title = parsedhtml.getElementById('title')
 
-            let articlehtml = articles[articlekeys[i]]
-            let parsedhtml = domparser.parseFromString(articlehtml, 'text/html')
-
-            currentarticle['title'] = parsedhtml.getElementById('title').innerText
+            currentarticle['articlename'] = currentarticle_title.dataset.articlename
+            currentarticle['exporttime'] = currentarticle_title.dataset.exporttime
+            currentarticle['randomnumber'] = currentarticle_title.dataset.randomnumber
             currentarticle['subtitle'] = parsedhtml.getElementById('subtitle').innerText
             currentarticle['sections'] = {}
 
-            totalsections = parsedhtml.getElementById('sectionmaster').childElementCount
+            totalsections = parsedhtml.getElementById('sectionmaster').childElementCount - 1
 
             for (let j = 0; j < totalsections; j++) {
                 tempobj = {}
                 asection = parsedhtml.getElementById(`section${j + 1}`)
-                sectiontitle = asection.children[0].children[0].innerText
-                sectionpara1 = asection.children[1].innerText
-                tempobj['title'] = sectiontitle
-                tempobj['paragraph'] = sectionpara1
+                tempobj['title'] = asection.children[0].children[0].innerText
+                tempobj['paragraph'] = asection.children[1].innerText
                 currentarticle['sections'][j] = tempobj
             }
-
             parsedarticles[articlekeys[i]] = currentarticle
         }
     }
 
     function renderColumns(parsedarticles) {
 
-        numberOfColumns = Object.keys(parsedarticles).length
-        let columns = document.getElementById('columnsmain')
-        let parsedArticlesKeys = Object.keys(parsedarticles)
-        let map_articlekey_column = {}
-
+        let numberOfColumns = Object.keys(parsedarticles).length,
+            columns = document.getElementById('columnsmain'),
+            parsedArticlesKeys = Object.keys(parsedarticles),
+            map_articlekey_column = {}
+        
         document.getElementById('loader_columnsmain').classList.add('hide')
         columns.classList.remove('hide')
 
         for (let i = 0; i < parsedArticlesKeys.length; i++) {
-            columnhtml = `<div class="column" id="column${i + 1}" data-articlekey="${parsedArticlesKeys[i]}">
+            columnhtml = `<div class="column" id="column${i + 1}" data-articlekey="${parsedArticlesKeys[i]}" data-articlename="${parsedarticles[parsedArticlesKeys[i]].articlename}" data-exporttime="${parsedarticles[parsedArticlesKeys[i]].exporttime}" data-randomnumber="${parsedarticles[parsedArticlesKeys[i]].randomnumber}">
                             <div class="head">
-                                <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title}</span>
+                                <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].articlename}</span>
                                 <p><span class="headline hl4">${parsedarticles[parsedArticlesKeys[i]].subtitle}</span></p>
                             </div>
                             <p>${parsedarticles[parsedArticlesKeys[i]].sections[0].paragraph}</p>
@@ -10043,7 +10040,6 @@ Bitcoin.Util = {
             //columns.append(columnhtml)      
             columns.innerHTML += columnhtml
             map_articlekey_column[parsedArticlesKeys[i]] = `column${i + 1}`
-
         }
 
         return map_articlekey_column
@@ -10060,21 +10056,21 @@ Bitcoin.Util = {
 
         if (typeof myFloID !== 'undefined') {
             if (element.classList.value == 'fa fa-thumbs-o-up') {
-                let articlekey = document.getElementById(columnName).dataset.articlekey
+                let title = document.getElementById(columnName)
                 let mainObj = {
                     'floID': myFloID,
-                    'articlekey': articlekey
+                    'articlename': title.dataset.articlename,
+                    'exporttime': title.dataset.exporttime,
+                    'randomnumber': title.dataset.randomnumber
                 }
 
-                floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'test').then((result, mainObj) => {
+                floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'article_votes_test5').then((result, mainObj) => {
                     element.classList.value = 'fa fa-thumbs-up'
 
                     if (document.getElementById(`${columnName}_count`).innerText == '') {
                         document.getElementById(`${columnName}_count`).innerText = '1'
                     } else {
-                        document.getElementById(`${columnName}_count`).innerText = parseInt(document
-                            .getElementById(
-                                `${columnName}_count`).innerText) + 1
+                        document.getElementById(`${columnName}_count`).innerText = parseInt(document.getElementById(`${columnName}_count`).innerText) + 1
                     }
                 })
             }
@@ -10115,10 +10111,10 @@ Bitcoin.Util = {
     }
 
     let repourl = "https://api.github.com/repos/vivekteega/articles/contents"
-
+    
     //Promise.all([fetch(repourl), webAppClient.requestGeneralData('test')]).then(async (values) => {
     Promise.all([fetch(repourl)]).then(async (values) => {
-
+        
         let repocontent = null
         window.articles = {}
         window.parsedarticles = {}
@@ -10131,11 +10127,12 @@ Bitcoin.Util = {
                 articles[repocontent[i]['name'].slice(0, repocontent[i]['name'].length - 5)] = articlehtml
             }
         }
-
+        
         parseArticles(articles)
         let map_articlekey_column = renderColumns(parsedarticles)
-        let articleInfo = values[1]
-        let articles_votesmapping = {}
+        let articleInfo = floCloudAPI.requestGeneralData('article_votes_test5')
+        
+        /* let articles_votesmapping = {}
 
         for (let i = 0; i < articleInfo.length; i++) {
 
@@ -10148,7 +10145,7 @@ Bitcoin.Util = {
             }
         }
 
-        updateVotes(articles_votesmapping, map_articlekey_column)
+        updateVotes(articles_votesmapping, map_articlekey_column)   */
 
     })
 
@@ -10232,7 +10229,7 @@ Bitcoin.Util = {
 
 
             //App functions....
-            let articledata = floCloudAPI.requestGeneralData('test')
+            let articledata = floCloudAPI.requestGeneralData('article_votes_test5')
 
             Promise.all([articledata]).then((values) => {
                 console.log("The promises just got resolved")
@@ -10246,29 +10243,30 @@ Bitcoin.Util = {
                 }
 
                 // User list related operations 
-                let articleInfo = floGlobals.generalData['article_votes_test5|FKAEdnPfjXLHSYwrXQu377ugN4tXU7VGdf|TEST_MODE']
+                let articleInfo = floGlobals.generalData['article_votes_test5|F9Cs1wF7BS8fDj1gmCsuQ3kpBWRwQj7B2o|TEST_MODE'],
+                    articleInfo_keys = Object.keys(articleInfo),
+                    articles_votesmapping = {}
 
-                let articles_votesmapping = {}
+                for (let i = 0; i < articleInfo_keys.length; i++) {
+                    let article_message = JSON.parse(articleInfo[articleInfo_keys[i]].message)
 
-                for (let i = 0; i < articleInfo.length; i++) {
-
-                    let article_message = JSON.parse(articleInfo[i].message)
-                    if (articleInfo[i].sender == myFloID) {
-
-                        let article_column_number = map_articlekey_column[article_message.articlekey]
-
-                        document.getElementById(`${article_column_number}_thumbs`).classList.value =
-                            'fa fa-thumbs-up'
-                    }
-
-                    if (!(article_message.articlekey in articles_votesmapping)) {
-                        articles_votesmapping[article_message.articlekey] = 1
-                    } else {
-                        articles_votesmapping[article_message.articlekey]++
+                    // Find the html element for the article in columns 
+                    article_element = document.querySelector(`[data-articlename='${article_message.articlename}'][data-exporttime='${article_message.exporttime}'][data-randomnumber='${article_message.randomnumber}`)
+                    if(article_element !== null){
+                        let votecount_element = article_element.children[2].children[1].children[0]
+                        if(votecount_element.innerText != ''){
+                            votecount_element.innerText = parseInt(votecount_element.innerText) + 1
+                        }else{
+                            votecount_element.innerText = '1'
+                        }
+                        
+                        if (articleInfo[articleInfo_keys[i]].senderID == myFloID) {
+                            article_element.children[2].children[1].children[1].classList.value = 'fa fa-thumbs-up'
+                        }
                     }
                 }
 
-                updateVotes(articles_votesmapping, map_articlekey_column)
+                //updateVotes(articles_votesmapping, map_articlekey_column)
             });
 
         }).catch(error => console.error(error))
